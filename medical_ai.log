@@ -1,0 +1,1834 @@
+2026-01-20 18:17:22,856 - medical_ai.api - INFO - ============================================================
+2026-01-20 18:17:22,856 - medical_ai.api - INFO - MEDICAL AI DIAGNOSIS SYSTEM - API SERVER
+2026-01-20 18:17:22,856 - medical_ai.api - INFO - ============================================================
+2026-01-20 18:17:22,856 - medical_ai.api - INFO - Host: 0.0.0.0
+2026-01-20 18:17:22,856 - medical_ai.api - INFO - Port: 8000
+2026-01-20 18:17:22,856 - medical_ai.api - INFO - Reload: True
+2026-01-20 18:17:22,856 - medical_ai.api - INFO - ============================================================
+2026-01-20 18:17:22,856 - medical_ai.api - INFO - 
+Starting server...
+2026-01-20 18:17:22,856 - medical_ai.api - INFO - API docs: http://0.0.0.0:8000/docs
+2026-01-20 18:17:22,857 - medical_ai.api - INFO - Health check: http://0.0.0.0:8000/health
+2026-01-20 18:17:22,857 - medical_ai.api - INFO - 
+Press CTRL+C to stop
+
+2026-01-20 18:18:46,067 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 18:18:46,071 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 18:18:46,074 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 18:18:46,074 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 18:18:46,078 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 18:18:46,078 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 18:18:46,078 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 18:18:46,078 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 18:18:46,079 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 18:18:46,079 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 18:18:46,079 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 18:18:46,079 - medical_ai.data - INFO - Fitting StandardScaler on training data
+2026-01-20 18:18:46,080 - medical_ai.data - INFO - StandardScaler fitted successfully
+2026-01-20 18:18:46,080 - medical_ai.models - INFO - Starting Genetic Optimization for random_forest...
+2026-01-20 18:18:46,080 - medical_ai.models - INFO - Population: 10, Generations: 5
+2026-01-20 18:18:55,962 - medical_ai.models - INFO - Optimization Complete. Best Score: 0.9604
+2026-01-20 18:18:55,962 - medical_ai.models - INFO - Best Params: {'n_estimators': 66, 'max_depth': 4, 'min_samples_split': 2, 'min_samples_leaf': 1, 'criterion': 'entropy'}
+2026-01-20 18:18:57,212 - medical_ai.models - INFO - Optimization history plot saved to models/optimization_history.png
+2026-01-20 18:18:57,215 - medical_ai.models - INFO - Optimization results saved.
+2026-01-20 18:36:05,060 - medical_ai.models - INFO - ============================================================
+2026-01-20 18:36:05,060 - medical_ai.models - INFO - MEDICAL AI DIAGNOSIS SYSTEM - TRAINING PIPELINE
+2026-01-20 18:36:05,060 - medical_ai.models - INFO - ============================================================
+2026-01-20 18:36:05,060 - medical_ai.models - INFO - 
+[Step 1/6] Loading dataset...
+2026-01-20 18:36:05,060 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 18:36:05,064 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 18:36:05,065 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 18:36:05,066 - medical_ai.models - INFO - 
+[Step 2/6] Preprocessing data...
+2026-01-20 18:36:05,066 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 18:36:05,069 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 18:36:05,069 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 18:36:05,069 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 18:36:05,069 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 18:36:05,069 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 18:36:05,069 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 18:36:05,069 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 18:36:05,069 - medical_ai.data - INFO - Fitting StandardScaler on training data
+2026-01-20 18:36:05,070 - medical_ai.data - INFO - StandardScaler fitted successfully
+2026-01-20 18:36:05,071 - medical_ai.data - INFO - Saving scaler to /Users/renatocesarcouto/Documents/Pessoal/Fase2/models/scaler.joblib
+2026-01-20 18:36:05,072 - medical_ai.data - INFO - Scaler saved successfully
+2026-01-20 18:36:05,072 - medical_ai.models - INFO - 
+[Step 3/6] Training logistic_regression...
+2026-01-20 18:36:05,072 - medical_ai.models - INFO - Creating Logistic Regression model
+2026-01-20 18:36:05,072 - medical_ai.models - INFO - Training logistic_regression on 341 samples
+2026-01-20 18:36:05,076 - medical_ai.models - INFO - logistic_regression trained successfully
+2026-01-20 18:36:05,077 - medical_ai.models - INFO - Training accuracy: 0.9883
+2026-01-20 18:36:05,077 - medical_ai.models - INFO - Validation accuracy: 0.9737
+2026-01-20 18:36:05,077 - medical_ai.models - INFO - Saving logistic_regression to /Users/renatocesarcouto/Documents/Pessoal/Fase2/models/logistic_regression.joblib
+2026-01-20 18:36:05,077 - medical_ai.models - INFO - Model saved successfully
+2026-01-20 18:36:05,077 - medical_ai.models - INFO - 
+[Step 4/6] Evaluating on test set...
+2026-01-20 18:36:05,077 - medical_ai.models - INFO - Calculating medical metrics
+2026-01-20 18:36:05,080 - medical_ai.models - INFO - Accuracy: 0.9737
+2026-01-20 18:36:05,080 - medical_ai.models - INFO - Sensitivity: 0.9524
+2026-01-20 18:36:05,080 - medical_ai.models - INFO - Specificity: 0.9861
+2026-01-20 18:36:05,080 - medical_ai.models - INFO - False Negatives: 2 (critical)
+2026-01-20 18:36:05,080 - medical_ai.models - INFO - False Positives: 1
+2026-01-20 18:36:05,080 - medical_ai.models - INFO - 
+[Step 5/6] Generating SHAP analysis...
+2026-01-20 18:36:05,080 - medical_ai.models - INFO - Generating SHAP analysis
+2026-01-20 18:36:05,082 - medical_ai.models - INFO - Top 10 features by SHAP importance:
+2026-01-20 18:36:05,082 - medical_ai.models - INFO -   1. worst texture: 1.148
+2026-01-20 18:36:05,082 - medical_ai.models - INFO -   2. mean concave points: 0.818
+2026-01-20 18:36:05,082 - medical_ai.models - INFO -   3. worst symmetry: 0.649
+2026-01-20 18:36:05,082 - medical_ai.models - INFO -   4. radius error: 0.644
+2026-01-20 18:36:05,082 - medical_ai.models - INFO -   5. worst radius: 0.581
+2026-01-20 18:36:05,082 - medical_ai.models - INFO -   6. compactness error: 0.572
+2026-01-20 18:36:05,082 - medical_ai.models - INFO -   7. worst concavity: 0.564
+2026-01-20 18:36:05,082 - medical_ai.models - INFO -   8. mean concavity: 0.551
+2026-01-20 18:36:05,082 - medical_ai.models - INFO -   9. worst area: 0.526
+2026-01-20 18:36:05,082 - medical_ai.models - INFO -   10. fractal dimension error: 0.478
+2026-01-20 18:36:05,083 - medical_ai.models - INFO - 
+[Step 6/6] Comparing with Fase 1 baseline...
+2026-01-20 18:36:05,083 - medical_ai.models - INFO - ✅ accuracy: 0.9737 vs 0.9737 (-0.0000)
+2026-01-20 18:36:05,083 - medical_ai.models - INFO - ⚠️ recall_sensitivity: 0.9524 vs 0.9861 (-0.0337)
+2026-01-20 18:36:05,083 - medical_ai.models - INFO - ✅ specificity: 0.9861 vs 0.9524 (+0.0337)
+2026-01-20 18:36:05,083 - medical_ai.models - INFO - 
+✅ Training complete! Metadata saved to /Users/renatocesarcouto/Documents/Pessoal/Fase2/models/metadata.json
+2026-01-20 18:36:05,083 - medical_ai.models - INFO - 
+============================================================
+2026-01-20 18:36:05,083 - medical_ai.models - INFO - TRAINING SUMMARY
+2026-01-20 18:36:05,083 - medical_ai.models - INFO - ============================================================
+2026-01-20 18:36:05,083 - medical_ai.models - INFO - Model: logistic_regression
+2026-01-20 18:36:05,083 - medical_ai.models - INFO - Accuracy: 0.9737
+2026-01-20 18:36:05,083 - medical_ai.models - INFO - Sensitivity: 0.9524
+2026-01-20 18:36:05,083 - medical_ai.models - INFO - Specificity: 0.9861
+2026-01-20 18:36:05,083 - medical_ai.models - INFO - False Negatives: 2
+2026-01-20 18:36:05,084 - medical_ai.models - INFO - False Positives: 1
+2026-01-20 18:36:05,084 - medical_ai.models - INFO - ============================================================
+2026-01-20 18:36:13,440 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 18:36:13,443 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 18:36:13,443 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 18:36:13,443 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 18:36:13,445 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 18:36:13,445 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 18:36:13,445 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 18:36:13,445 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 18:36:13,446 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 18:36:13,446 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 18:36:13,446 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 18:36:13,446 - medical_ai.data - INFO - Fitting StandardScaler on training data
+2026-01-20 18:36:13,447 - medical_ai.data - INFO - StandardScaler fitted successfully
+2026-01-20 18:36:13,447 - medical_ai.models - INFO - Starting Genetic Optimization for random_forest...
+2026-01-20 18:36:13,447 - medical_ai.models - INFO - Population: 10, Generations: 5
+2026-01-20 18:36:23,020 - medical_ai.models - INFO - Optimization Complete. Best Score: 0.9583
+2026-01-20 18:36:23,020 - medical_ai.models - INFO - Best Params: {'n_estimators': 200, 'max_depth': 5, 'min_samples_split': 3, 'min_samples_leaf': 1, 'criterion': 'gini'}
+2026-01-20 18:36:23,166 - medical_ai.models - INFO - Optimization history plot saved to models/optimization_history.png
+2026-01-20 18:36:23,170 - medical_ai.models - INFO - Optimization results saved.
+2026-01-20 18:43:40,321 - medical_ai.api - ERROR - Predictor not initialized
+2026-01-20 18:43:40,325 - medical_ai.api - ERROR - Predictor not initialized
+2026-01-20 18:43:40,326 - medical_ai.api - ERROR - Predictor not initialized
+2026-01-20 18:43:40,327 - medical_ai.api - ERROR - Predictor not initialized
+2026-01-20 18:43:40,340 - medical_ai.api - ERROR - Predictor not initialized
+2026-01-20 18:43:40,343 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 18:43:40,348 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 18:43:40,350 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 18:43:40,350 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 18:43:40,353 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 18:43:40,353 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 18:43:40,353 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 18:43:40,353 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 18:43:40,353 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 18:43:40,354 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 18:43:40,354 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 18:43:40,354 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 18:43:40,356 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 18:43:40,356 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 18:43:40,356 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 18:43:40,357 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 18:43:40,357 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 18:43:40,357 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 18:43:40,357 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 18:43:40,357 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 18:43:40,357 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 18:43:40,357 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 18:43:40,358 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 18:43:40,360 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 18:43:40,360 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 18:43:40,360 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 18:43:40,361 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 18:43:40,361 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 18:43:40,361 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 18:43:40,361 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 18:43:40,361 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 18:43:40,361 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 18:43:40,361 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 18:43:40,361 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 18:43:40,362 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 18:43:40,362 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 18:43:40,362 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 18:43:40,362 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 18:43:40,362 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 18:43:40,362 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 18:43:40,362 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 18:43:40,365 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 18:43:40,366 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 18:43:40,366 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 18:43:40,367 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 18:43:40,368 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 18:43:40,368 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 18:43:40,368 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 18:43:40,368 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 18:43:40,368 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 18:43:40,368 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 18:43:40,368 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 18:43:40,368 - medical_ai.data - INFO - Fitting StandardScaler on training data
+2026-01-20 18:43:40,369 - medical_ai.data - INFO - StandardScaler fitted successfully
+2026-01-20 18:43:40,369 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 18:43:40,371 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 18:43:40,372 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 18:43:40,372 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 18:43:40,373 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 18:43:40,373 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 18:43:40,373 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 18:43:40,373 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 18:43:40,373 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 18:43:40,373 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 18:43:40,373 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 18:43:40,373 - medical_ai.data - INFO - Fitting StandardScaler on training data
+2026-01-20 18:43:40,374 - medical_ai.data - INFO - StandardScaler fitted successfully
+2026-01-20 18:43:40,374 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 18:43:40,376 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 18:43:40,376 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 18:43:40,377 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 18:43:40,379 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 18:43:40,379 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 18:43:40,379 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 18:43:40,380 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 18:43:40,380 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 18:43:40,380 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 18:43:40,380 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 18:43:40,380 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 18:43:40,380 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 18:43:40,380 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 18:43:40,380 - medical_ai.data - INFO - Fitting StandardScaler on training data
+2026-01-20 18:43:40,381 - medical_ai.data - INFO - StandardScaler fitted successfully
+2026-01-20 18:43:40,381 - medical_ai.data - INFO - Saving scaler to /var/folders/pg/q_jsyc556cd_j2gm81ldyflr0000gn/T/tmpsxu3mjng.joblib
+2026-01-20 18:43:40,381 - medical_ai.data - INFO - Scaler saved successfully
+2026-01-20 18:43:40,381 - medical_ai.data - INFO - Loading scaler from /var/folders/pg/q_jsyc556cd_j2gm81ldyflr0000gn/T/tmpsxu3mjng.joblib
+2026-01-20 18:43:40,382 - medical_ai.data - INFO - Scaler loaded successfully
+2026-01-20 18:43:40,384 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 18:43:40,386 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 18:43:40,386 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 18:43:40,386 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 18:43:40,387 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 18:43:40,387 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 18:43:40,387 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 18:43:40,387 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 18:43:40,388 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 18:43:40,388 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 18:43:40,388 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 18:43:40,388 - medical_ai.models - INFO - Creating Logistic Regression model
+2026-01-20 18:43:40,388 - medical_ai.models - INFO - Creating Random Forest model
+2026-01-20 18:43:40,389 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 18:43:40,391 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 18:43:40,391 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 18:43:40,392 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 18:43:40,393 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 18:43:40,393 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 18:43:40,393 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 18:43:40,393 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 18:43:40,393 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 18:43:40,393 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 18:43:40,393 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 18:43:40,393 - medical_ai.data - INFO - Fitting StandardScaler on training data
+2026-01-20 18:43:40,393 - medical_ai.data - INFO - StandardScaler fitted successfully
+2026-01-20 18:43:40,394 - medical_ai.models - INFO - Creating Logistic Regression model
+2026-01-20 18:43:40,394 - medical_ai.models - INFO - Training logistic_regression on 341 samples
+2026-01-20 18:43:40,398 - medical_ai.models - INFO - logistic_regression trained successfully
+2026-01-20 18:43:40,398 - medical_ai.models - INFO - Training accuracy: 0.9883
+2026-01-20 18:43:40,400 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 18:43:40,402 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 18:43:40,402 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 18:43:40,402 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 18:43:40,403 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 18:43:40,403 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 18:43:40,403 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 18:43:40,403 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 18:43:40,403 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 18:43:40,403 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 18:43:40,403 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 18:43:40,403 - medical_ai.data - INFO - Fitting StandardScaler on training data
+2026-01-20 18:43:40,404 - medical_ai.data - INFO - StandardScaler fitted successfully
+2026-01-20 18:43:40,404 - medical_ai.models - INFO - Creating Random Forest model
+2026-01-20 18:43:40,404 - medical_ai.models - INFO - Training random_forest on 341 samples
+2026-01-20 18:43:40,457 - medical_ai.models - INFO - random_forest trained successfully
+2026-01-20 18:43:40,459 - medical_ai.models - INFO - Training accuracy: 1.0000
+2026-01-20 18:43:40,459 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 18:43:40,461 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 18:43:40,461 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 18:43:40,461 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 18:43:40,462 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 18:43:40,462 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 18:43:40,462 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 18:43:40,462 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 18:43:40,462 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 18:43:40,463 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 18:43:40,463 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 18:43:40,463 - medical_ai.data - INFO - Fitting StandardScaler on training data
+2026-01-20 18:43:40,463 - medical_ai.data - INFO - StandardScaler fitted successfully
+2026-01-20 18:43:40,463 - medical_ai.models - INFO - Creating Logistic Regression model
+2026-01-20 18:43:40,463 - medical_ai.models - INFO - Training logistic_regression on 341 samples
+2026-01-20 18:43:40,465 - medical_ai.models - INFO - logistic_regression trained successfully
+2026-01-20 18:43:40,465 - medical_ai.models - INFO - Training accuracy: 0.9883
+2026-01-20 18:43:40,465 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 18:43:40,467 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 18:43:40,467 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 18:43:40,467 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 18:43:40,468 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 18:43:40,468 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 18:43:40,468 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 18:43:40,468 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 18:43:40,468 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 18:43:40,468 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 18:43:40,468 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 18:43:40,468 - medical_ai.data - INFO - Fitting StandardScaler on training data
+2026-01-20 18:43:40,468 - medical_ai.data - INFO - StandardScaler fitted successfully
+2026-01-20 18:43:40,469 - medical_ai.models - INFO - Creating Logistic Regression model
+2026-01-20 18:43:40,469 - medical_ai.models - INFO - Training logistic_regression on 341 samples
+2026-01-20 18:43:40,470 - medical_ai.models - INFO - logistic_regression trained successfully
+2026-01-20 18:43:40,470 - medical_ai.models - INFO - Training accuracy: 0.9883
+2026-01-20 18:43:40,471 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 18:43:40,473 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 18:43:40,473 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 18:43:40,473 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 18:43:40,474 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 18:43:40,474 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 18:43:40,474 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 18:43:40,474 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 18:43:40,474 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 18:43:40,475 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 18:43:40,475 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 18:43:40,475 - medical_ai.data - INFO - Fitting StandardScaler on training data
+2026-01-20 18:43:40,475 - medical_ai.data - INFO - StandardScaler fitted successfully
+2026-01-20 18:43:40,476 - medical_ai.models - INFO - Creating Logistic Regression model
+2026-01-20 18:43:40,476 - medical_ai.models - INFO - Training logistic_regression on 341 samples
+2026-01-20 18:43:40,477 - medical_ai.models - INFO - logistic_regression trained successfully
+2026-01-20 18:43:40,477 - medical_ai.models - INFO - Training accuracy: 0.9883
+2026-01-20 18:43:40,477 - medical_ai.models - INFO - Saving logistic_regression to /var/folders/pg/q_jsyc556cd_j2gm81ldyflr0000gn/T/tmp04p4k5m0.joblib
+2026-01-20 18:43:40,478 - medical_ai.models - INFO - Model saved successfully
+2026-01-20 18:43:40,478 - medical_ai.models - INFO - Creating Logistic Regression model
+2026-01-20 18:43:40,479 - medical_ai.models - INFO - Creating Logistic Regression model
+2026-01-20 18:43:40,480 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 18:43:40,482 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 18:43:40,482 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 18:43:40,482 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 18:43:40,483 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 18:43:40,483 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 18:43:40,484 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 18:43:40,484 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 18:43:40,484 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 18:43:40,484 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 18:43:40,484 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 18:43:40,484 - medical_ai.data - INFO - Fitting StandardScaler on training data
+2026-01-20 18:43:40,484 - medical_ai.data - INFO - StandardScaler fitted successfully
+2026-01-20 18:43:40,485 - medical_ai.models - INFO - Creating Logistic Regression model
+2026-01-20 18:43:40,485 - medical_ai.models - INFO - Training logistic_regression on 341 samples
+2026-01-20 18:43:40,486 - medical_ai.models - INFO - logistic_regression trained successfully
+2026-01-20 18:43:40,486 - medical_ai.models - INFO - Training accuracy: 0.9883
+2026-01-20 18:43:40,487 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 18:43:40,489 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 18:43:40,489 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 18:43:40,489 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 18:43:40,490 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 18:43:40,490 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 18:43:40,490 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 18:43:40,490 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 18:43:40,490 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 18:43:40,490 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 18:43:40,490 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 18:43:40,490 - medical_ai.data - INFO - Fitting StandardScaler on training data
+2026-01-20 18:43:40,491 - medical_ai.data - INFO - StandardScaler fitted successfully
+2026-01-20 18:43:40,491 - medical_ai.models - INFO - Creating Logistic Regression model
+2026-01-20 18:43:40,491 - medical_ai.models - INFO - Training logistic_regression on 341 samples
+2026-01-20 18:43:40,493 - medical_ai.models - INFO - logistic_regression trained successfully
+2026-01-20 18:43:40,493 - medical_ai.models - INFO - Training accuracy: 0.9883
+2026-01-20 18:43:40,493 - medical_ai.models - INFO - Creating Logistic Regression model
+2026-01-20 18:43:40,493 - medical_ai.models - INFO - Training logistic_regression on 341 samples
+2026-01-20 18:43:40,494 - medical_ai.models - INFO - logistic_regression trained successfully
+2026-01-20 18:43:40,494 - medical_ai.models - INFO - Training accuracy: 0.9883
+2026-01-20 18:43:40,495 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 18:43:40,497 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 18:43:40,497 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 18:43:40,497 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 18:43:40,498 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 18:43:40,498 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 18:43:40,498 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 18:43:40,498 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 18:43:40,498 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 18:43:40,498 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 18:43:40,499 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 18:43:40,499 - medical_ai.data - INFO - Fitting StandardScaler on training data
+2026-01-20 18:43:40,499 - medical_ai.data - INFO - StandardScaler fitted successfully
+2026-01-20 18:43:40,500 - medical_ai.models - INFO - Creating Logistic Regression model
+2026-01-20 18:43:40,500 - medical_ai.models - INFO - Training logistic_regression on 341 samples
+2026-01-20 18:43:40,501 - medical_ai.models - INFO - logistic_regression trained successfully
+2026-01-20 18:43:40,501 - medical_ai.models - INFO - Training accuracy: 0.9883
+2026-01-20 18:43:40,501 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 18:43:40,503 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 18:43:40,503 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 18:43:40,503 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 18:43:40,504 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 18:43:40,504 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 18:43:40,504 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 18:43:40,504 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 18:43:40,504 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 18:43:40,504 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 18:43:40,505 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 18:43:40,505 - medical_ai.data - INFO - Fitting StandardScaler on training data
+2026-01-20 18:43:40,505 - medical_ai.data - INFO - StandardScaler fitted successfully
+2026-01-20 18:43:40,505 - medical_ai.models - INFO - Creating Random Forest model
+2026-01-20 18:43:40,505 - medical_ai.models - INFO - Training random_forest on 341 samples
+2026-01-20 18:43:40,558 - medical_ai.models - INFO - random_forest trained successfully
+2026-01-20 18:43:40,560 - medical_ai.models - INFO - Training accuracy: 1.0000
+2026-01-20 18:43:40,562 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 18:43:40,564 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 18:43:40,564 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 18:43:40,564 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 18:43:40,565 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 18:43:40,565 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 18:43:40,565 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 18:43:40,565 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 18:43:40,565 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 18:43:40,565 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 18:43:40,565 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 18:43:40,565 - medical_ai.data - INFO - Fitting StandardScaler on training data
+2026-01-20 18:43:40,565 - medical_ai.data - INFO - StandardScaler fitted successfully
+2026-01-20 18:43:40,566 - medical_ai.models - INFO - Creating Logistic Regression model
+2026-01-20 18:43:40,566 - medical_ai.models - INFO - Training logistic_regression on 341 samples
+2026-01-20 18:43:40,567 - medical_ai.models - INFO - logistic_regression trained successfully
+2026-01-20 18:43:40,567 - medical_ai.models - INFO - Training accuracy: 0.9883
+2026-01-20 18:43:40,567 - medical_ai.models - INFO - Creating Random Forest model
+2026-01-20 18:43:40,567 - medical_ai.models - INFO - Training random_forest on 341 samples
+2026-01-20 18:43:40,620 - medical_ai.models - INFO - random_forest trained successfully
+2026-01-20 18:43:40,622 - medical_ai.models - INFO - Training accuracy: 1.0000
+2026-01-20 18:46:55,590 - medical_ai.api - INFO - ============================================================
+2026-01-20 18:46:55,590 - medical_ai.api - INFO - MEDICAL AI DIAGNOSIS SYSTEM - API SERVER
+2026-01-20 18:46:55,590 - medical_ai.api - INFO - ============================================================
+2026-01-20 18:46:55,590 - medical_ai.api - INFO - Host: 0.0.0.0
+2026-01-20 18:46:55,590 - medical_ai.api - INFO - Port: 8000
+2026-01-20 18:46:55,590 - medical_ai.api - INFO - Reload: True
+2026-01-20 18:46:55,590 - medical_ai.api - INFO - ============================================================
+2026-01-20 18:46:55,590 - medical_ai.api - INFO - 
+Starting server...
+2026-01-20 18:46:55,590 - medical_ai.api - INFO - API docs: http://0.0.0.0:8000/docs
+2026-01-20 18:46:55,590 - medical_ai.api - INFO - Health check: http://0.0.0.0:8000/health
+2026-01-20 18:46:55,590 - medical_ai.api - INFO - 
+Press CTRL+C to stop
+
+2026-01-20 18:46:55,981 - medical_ai.api - INFO - Starting Medical AI Diagnosis API
+2026-01-20 18:46:55,982 - medical_ai.api - INFO - Initializing predictor with logistic_regression
+2026-01-20 18:46:55,982 - medical_ai.models - INFO - Loading logistic_regression from /Users/renatocesarcouto/Documents/Pessoal/Fase2/models/logistic_regression.joblib
+2026-01-20 18:46:56,633 - medical_ai.models - INFO - Model loaded successfully
+2026-01-20 18:46:56,633 - medical_ai.models - INFO - Loading scaler from /Users/renatocesarcouto/Documents/Pessoal/Fase2/models/scaler.joblib
+2026-01-20 18:46:56,633 - medical_ai.models - INFO - Scaler loaded successfully
+2026-01-20 18:46:56,633 - medical_ai.api - INFO - Predictor initialized successfully
+2026-01-20 18:46:56,633 - medical_ai.api - INFO - ✅ API startup complete
+2026-01-20 18:49:54,586 - medical_ai.api - INFO - Received prediction request
+2026-01-20 18:49:54,590 - medical_ai.api - INFO - Prediction: Malignant (confidence: 100.00%)
+2026-01-20 18:49:54,593 - medical_ai.api - WARNING - LLM Explanation failed: No module named 'requests'
+2026-01-20 18:49:57,438 - medical_ai.api - INFO - Received prediction request
+2026-01-20 18:49:57,439 - medical_ai.api - INFO - Prediction: Malignant (confidence: 100.00%)
+2026-01-20 18:49:57,440 - medical_ai.api - WARNING - LLM Explanation failed: No module named 'requests'
+2026-01-20 18:51:07,691 - medical_ai.api - INFO - Received prediction request
+2026-01-20 18:51:07,692 - medical_ai.api - INFO - Prediction: Malignant (confidence: 100.00%)
+2026-01-20 18:51:07,693 - medical_ai.api - WARNING - LLM Explanation failed: No module named 'requests'
+2026-01-20 18:51:09,200 - medical_ai.api - INFO - Received prediction request
+2026-01-20 18:51:09,200 - medical_ai.api - INFO - Prediction: Malignant (confidence: 100.00%)
+2026-01-20 18:51:09,201 - medical_ai.api - WARNING - LLM Explanation failed: No module named 'requests'
+2026-01-20 18:57:39,169 - medical_ai.models - INFO - ============================================================
+2026-01-20 18:57:39,169 - medical_ai.models - INFO - MEDICAL AI DIAGNOSIS SYSTEM - TRAINING PIPELINE
+2026-01-20 18:57:39,169 - medical_ai.models - INFO - ============================================================
+2026-01-20 18:57:39,169 - medical_ai.models - INFO - 
+[Step 1/6] Loading dataset...
+2026-01-20 18:57:39,169 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 18:57:39,172 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 18:57:39,172 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 18:57:39,172 - medical_ai.models - INFO - 
+[Step 2/6] Preprocessing data...
+2026-01-20 18:57:39,172 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 18:57:39,173 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 18:57:39,173 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 18:57:39,173 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 18:57:39,173 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 18:57:39,173 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 18:57:39,174 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 18:57:39,174 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 18:57:39,174 - medical_ai.data - INFO - Fitting StandardScaler on training data
+2026-01-20 18:57:39,174 - medical_ai.data - INFO - StandardScaler fitted successfully
+2026-01-20 18:57:39,175 - medical_ai.data - INFO - Saving scaler to /Users/renatocesarcouto/Documents/Pessoal/Fase2/models/scaler.joblib
+2026-01-20 18:57:39,176 - medical_ai.data - INFO - Scaler saved successfully
+2026-01-20 18:57:39,176 - medical_ai.models - INFO - 
+[Step 3/6] Training logistic_regression...
+2026-01-20 18:57:39,176 - medical_ai.models - INFO - Creating Logistic Regression model
+2026-01-20 18:57:39,176 - medical_ai.models - INFO - Training logistic_regression on 341 samples
+2026-01-20 18:57:39,179 - medical_ai.models - INFO - logistic_regression trained successfully
+2026-01-20 18:57:39,180 - medical_ai.models - INFO - Training accuracy: 0.9883
+2026-01-20 18:57:39,181 - medical_ai.models - INFO - Validation accuracy: 0.9737
+2026-01-20 18:57:39,181 - medical_ai.models - INFO - Saving logistic_regression to /Users/renatocesarcouto/Documents/Pessoal/Fase2/models/logistic_regression.joblib
+2026-01-20 18:57:39,181 - medical_ai.models - INFO - Model saved successfully
+2026-01-20 18:57:39,181 - medical_ai.models - INFO - 
+[Step 4/6] Evaluating on test set...
+2026-01-20 18:57:39,181 - medical_ai.models - INFO - Calculating medical metrics
+2026-01-20 18:57:39,184 - medical_ai.models - INFO - Accuracy: 0.9737
+2026-01-20 18:57:39,184 - medical_ai.models - INFO - Sensitivity: 0.9524
+2026-01-20 18:57:39,184 - medical_ai.models - INFO - Specificity: 0.9861
+2026-01-20 18:57:39,184 - medical_ai.models - INFO - False Negatives: 2 (critical)
+2026-01-20 18:57:39,184 - medical_ai.models - INFO - False Positives: 1
+2026-01-20 18:57:39,184 - medical_ai.models - INFO - 
+[Step 5/6] Generating SHAP analysis...
+2026-01-20 18:57:39,184 - medical_ai.models - INFO - Generating SHAP analysis
+2026-01-20 18:57:39,186 - medical_ai.models - INFO - Top 10 features by SHAP importance:
+2026-01-20 18:57:39,186 - medical_ai.models - INFO -   1. worst texture: 1.148
+2026-01-20 18:57:39,187 - medical_ai.models - INFO -   2. mean concave points: 0.818
+2026-01-20 18:57:39,187 - medical_ai.models - INFO -   3. worst symmetry: 0.649
+2026-01-20 18:57:39,187 - medical_ai.models - INFO -   4. radius error: 0.644
+2026-01-20 18:57:39,187 - medical_ai.models - INFO -   5. worst radius: 0.581
+2026-01-20 18:57:39,187 - medical_ai.models - INFO -   6. compactness error: 0.572
+2026-01-20 18:57:39,187 - medical_ai.models - INFO -   7. worst concavity: 0.564
+2026-01-20 18:57:39,187 - medical_ai.models - INFO -   8. mean concavity: 0.551
+2026-01-20 18:57:39,187 - medical_ai.models - INFO -   9. worst area: 0.526
+2026-01-20 18:57:39,187 - medical_ai.models - INFO -   10. fractal dimension error: 0.478
+2026-01-20 18:57:39,187 - medical_ai.models - INFO - 
+[Step 6/6] Comparing with Fase 1 baseline...
+2026-01-20 18:57:39,187 - medical_ai.models - INFO - ✅ accuracy: 0.9737 vs 0.9737 (-0.0000)
+2026-01-20 18:57:39,187 - medical_ai.models - INFO - ⚠️ recall_sensitivity: 0.9524 vs 0.9861 (-0.0337)
+2026-01-20 18:57:39,187 - medical_ai.models - INFO - ✅ specificity: 0.9861 vs 0.9524 (+0.0337)
+2026-01-20 18:57:39,188 - medical_ai.models - INFO - 
+✅ Training complete! Metadata saved to /Users/renatocesarcouto/Documents/Pessoal/Fase2/models/metadata.json
+2026-01-20 18:57:39,188 - medical_ai.models - INFO - 
+============================================================
+2026-01-20 18:57:39,188 - medical_ai.models - INFO - TRAINING SUMMARY
+2026-01-20 18:57:39,188 - medical_ai.models - INFO - ============================================================
+2026-01-20 18:57:39,188 - medical_ai.models - INFO - Model: logistic_regression
+2026-01-20 18:57:39,188 - medical_ai.models - INFO - Accuracy: 0.9737
+2026-01-20 18:57:39,188 - medical_ai.models - INFO - Sensitivity: 0.9524
+2026-01-20 18:57:39,188 - medical_ai.models - INFO - Specificity: 0.9861
+2026-01-20 18:57:39,188 - medical_ai.models - INFO - False Negatives: 2
+2026-01-20 18:57:39,188 - medical_ai.models - INFO - False Positives: 1
+2026-01-20 18:57:39,188 - medical_ai.models - INFO - ============================================================
+2026-01-20 18:57:52,418 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 18:57:52,420 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 18:57:52,420 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 18:57:52,421 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 18:57:52,423 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 18:57:52,423 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 18:57:52,423 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 18:57:52,423 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 18:57:52,424 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 18:57:52,424 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 18:57:52,424 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 18:57:52,424 - medical_ai.data - INFO - Fitting StandardScaler on training data
+2026-01-20 18:57:52,425 - medical_ai.data - INFO - StandardScaler fitted successfully
+2026-01-20 18:57:52,425 - medical_ai.models - INFO - Starting Genetic Optimization for random_forest...
+2026-01-20 18:57:52,425 - medical_ai.models - INFO - Population: 10, Generations: 5
+2026-01-20 18:58:02,095 - medical_ai.models - INFO - Optimization Complete. Best Score: 0.9605
+2026-01-20 18:58:02,095 - medical_ai.models - INFO - Best Params: {'n_estimators': 55, 'max_depth': 13, 'min_samples_split': 5, 'min_samples_leaf': 2, 'criterion': 'gini'}
+2026-01-20 18:58:02,236 - medical_ai.models - INFO - Optimization history plot saved to models/optimization_history.png
+2026-01-20 18:58:02,238 - medical_ai.models - INFO - Optimization results saved.
+2026-01-20 18:58:14,959 - medical_ai.api - INFO - ============================================================
+2026-01-20 18:58:14,959 - medical_ai.api - INFO - MEDICAL AI DIAGNOSIS SYSTEM - API SERVER
+2026-01-20 18:58:14,959 - medical_ai.api - INFO - ============================================================
+2026-01-20 18:58:14,959 - medical_ai.api - INFO - Host: 0.0.0.0
+2026-01-20 18:58:14,959 - medical_ai.api - INFO - Port: 8000
+2026-01-20 18:58:14,959 - medical_ai.api - INFO - Reload: True
+2026-01-20 18:58:14,959 - medical_ai.api - INFO - ============================================================
+2026-01-20 18:58:14,959 - medical_ai.api - INFO - 
+Starting server...
+2026-01-20 18:58:14,959 - medical_ai.api - INFO - API docs: http://0.0.0.0:8000/docs
+2026-01-20 18:58:14,959 - medical_ai.api - INFO - Health check: http://0.0.0.0:8000/health
+2026-01-20 18:58:14,959 - medical_ai.api - INFO - 
+Press CTRL+C to stop
+
+2026-01-20 18:58:32,559 - medical_ai.api - INFO - Shutting down Medical AI Diagnosis API
+2026-01-20 18:58:36,263 - medical_ai.api - INFO - ============================================================
+2026-01-20 18:58:36,263 - medical_ai.api - INFO - MEDICAL AI DIAGNOSIS SYSTEM - API SERVER
+2026-01-20 18:58:36,263 - medical_ai.api - INFO - ============================================================
+2026-01-20 18:58:36,263 - medical_ai.api - INFO - Host: 0.0.0.0
+2026-01-20 18:58:36,263 - medical_ai.api - INFO - Port: 8000
+2026-01-20 18:58:36,263 - medical_ai.api - INFO - Reload: True
+2026-01-20 18:58:36,263 - medical_ai.api - INFO - ============================================================
+2026-01-20 18:58:36,263 - medical_ai.api - INFO - 
+Starting server...
+2026-01-20 18:58:36,263 - medical_ai.api - INFO - API docs: http://0.0.0.0:8000/docs
+2026-01-20 18:58:36,263 - medical_ai.api - INFO - Health check: http://0.0.0.0:8000/health
+2026-01-20 18:58:36,263 - medical_ai.api - INFO - 
+Press CTRL+C to stop
+
+2026-01-20 18:58:36,641 - medical_ai.api - INFO - Starting Medical AI Diagnosis API
+2026-01-20 18:58:36,641 - medical_ai.api - INFO - Initializing predictor with logistic_regression
+2026-01-20 18:58:36,642 - medical_ai.models - INFO - Loading logistic_regression from /Users/renatocesarcouto/Documents/Pessoal/Fase2/models/logistic_regression.joblib
+2026-01-20 18:58:37,140 - medical_ai.models - INFO - Model loaded successfully
+2026-01-20 18:58:37,140 - medical_ai.models - INFO - Loading scaler from /Users/renatocesarcouto/Documents/Pessoal/Fase2/models/scaler.joblib
+2026-01-20 18:58:37,140 - medical_ai.models - INFO - Scaler loaded successfully
+2026-01-20 18:58:37,140 - medical_ai.api - INFO - Predictor initialized successfully
+2026-01-20 18:58:37,140 - medical_ai.api - INFO - ✅ API startup complete
+2026-01-20 18:59:25,836 - medical_ai.api - INFO - Received prediction request
+2026-01-20 18:59:25,840 - medical_ai.api - INFO - Prediction: Malignant (confidence: 100.00%)
+2026-01-20 18:59:25,840 - medical_ai.api - WARNING - LLM Explanation failed: No module named 'requests'
+2026-01-20 18:59:30,027 - medical_ai.api - INFO - Received prediction request
+2026-01-20 18:59:30,027 - medical_ai.api - INFO - Prediction: Malignant (confidence: 100.00%)
+2026-01-20 18:59:30,028 - medical_ai.api - WARNING - LLM Explanation failed: No module named 'requests'
+2026-01-20 19:00:38,060 - medical_ai.api - INFO - Received prediction request
+2026-01-20 19:00:38,061 - medical_ai.api - INFO - Prediction: Malignant (confidence: 100.00%)
+2026-01-20 19:00:38,062 - medical_ai.api - WARNING - LLM Explanation failed: No module named 'requests'
+2026-01-20 19:00:38,888 - medical_ai.api - INFO - Received prediction request
+2026-01-20 19:00:38,889 - medical_ai.api - INFO - Prediction: Malignant (confidence: 100.00%)
+2026-01-20 19:00:38,889 - medical_ai.api - WARNING - LLM Explanation failed: No module named 'requests'
+2026-01-20 19:01:45,774 - medical_ai.api - INFO - Received prediction request
+2026-01-20 19:01:45,775 - medical_ai.api - INFO - Prediction: Malignant (confidence: 100.00%)
+2026-01-20 19:01:45,776 - medical_ai.api - WARNING - LLM Explanation failed: No module named 'requests'
+2026-01-20 19:01:47,010 - medical_ai.api - INFO - Received prediction request
+2026-01-20 19:01:47,010 - medical_ai.api - INFO - Prediction: Malignant (confidence: 100.00%)
+2026-01-20 19:01:47,011 - medical_ai.api - WARNING - LLM Explanation failed: No module named 'requests'
+2026-01-20 19:04:03,716 - medical_ai.api - INFO - Shutting down Medical AI Diagnosis API
+2026-01-20 19:04:04,189 - medical_ai.api - INFO - Starting Medical AI Diagnosis API
+2026-01-20 19:04:04,189 - medical_ai.api - INFO - Initializing predictor with logistic_regression
+2026-01-20 19:04:04,189 - medical_ai.models - INFO - Loading logistic_regression from /Users/renatocesarcouto/Documents/Pessoal/Fase2/models/logistic_regression.joblib
+2026-01-20 19:04:06,451 - medical_ai.models - INFO - Model loaded successfully
+2026-01-20 19:04:06,451 - medical_ai.models - INFO - Loading scaler from /Users/renatocesarcouto/Documents/Pessoal/Fase2/models/scaler.joblib
+2026-01-20 19:04:06,452 - medical_ai.models - INFO - Scaler loaded successfully
+2026-01-20 19:04:06,452 - medical_ai.api - INFO - Predictor initialized successfully
+2026-01-20 19:04:06,452 - medical_ai.api - INFO - ✅ API startup complete
+2026-01-20 19:05:08,041 - medical_ai.api - INFO - Received prediction request
+2026-01-20 19:05:08,043 - medical_ai.api - INFO - Prediction: Malignant (confidence: 100.00%)
+2026-01-20 19:05:08,112 - medical_ai.api - WARNING - LLM Explanation failed: Expected 2D array, got 1D array instead:
+array=[1.799e+01 1.038e+01 1.228e+02 1.001e+03 1.184e-01 2.776e-01 3.001e-01
+ 1.471e-01 2.419e-01 7.871e-02 1.095e+00 9.053e-01 8.589e+00 1.534e+02
+ 6.399e-03 4.904e-02 5.373e-02 1.587e-02 3.003e-02 6.193e-03 2.538e+01
+ 1.733e+01 1.846e+02 2.019e+03 1.622e-01 6.656e-01 7.119e-01 2.654e-01
+ 4.601e-01 1.189e-01].
+Reshape your data either using array.reshape(-1, 1) if your data has a single feature or array.reshape(1, -1) if it contains a single sample.
+2026-01-20 19:05:15,093 - medical_ai.api - INFO - Received prediction request
+2026-01-20 19:05:15,094 - medical_ai.api - INFO - Prediction: Malignant (confidence: 100.00%)
+2026-01-20 19:05:15,095 - medical_ai.api - WARNING - LLM Explanation failed: Expected 2D array, got 1D array instead:
+array=[1.799e+01 1.038e+01 1.228e+02 1.001e+03 1.184e-01 2.776e-01 3.001e-01
+ 1.471e-01 2.419e-01 7.871e-02 1.095e+00 9.053e-01 8.589e+00 1.534e+02
+ 6.399e-03 4.904e-02 5.373e-02 1.587e-02 3.003e-02 6.193e-03 2.538e+01
+ 1.733e+01 1.846e+02 2.019e+03 1.622e-01 6.656e-01 7.119e-01 2.654e-01
+ 4.601e-01 1.189e-01].
+Reshape your data either using array.reshape(-1, 1) if your data has a single feature or array.reshape(1, -1) if it contains a single sample.
+2026-01-20 19:05:23,141 - medical_ai.api - INFO - Received prediction request
+2026-01-20 19:05:23,141 - medical_ai.api - INFO - Prediction: Malignant (confidence: 100.00%)
+2026-01-20 19:05:23,142 - medical_ai.api - WARNING - LLM Explanation failed: Expected 2D array, got 1D array instead:
+array=[1.799e+01 1.038e+01 1.228e+02 1.001e+03 1.184e-01 2.776e-01 3.001e-01
+ 1.471e-01 2.419e-01 7.871e-02 1.095e+00 9.053e-01 8.589e+00 1.534e+02
+ 6.399e-03 4.904e-02 5.373e-02 1.587e-02 3.003e-02 6.193e-03 2.538e+01
+ 1.733e+01 1.846e+02 2.019e+03 1.622e-01 6.656e-01 7.119e-01 2.654e-01
+ 4.601e-01 1.189e-01].
+Reshape your data either using array.reshape(-1, 1) if your data has a single feature or array.reshape(1, -1) if it contains a single sample.
+2026-01-20 19:05:38,740 - medical_ai.api - INFO - Received prediction request
+2026-01-20 19:05:38,741 - medical_ai.api - INFO - Prediction: Malignant (confidence: 100.00%)
+2026-01-20 19:05:38,742 - medical_ai.api - WARNING - LLM Explanation failed: Expected 2D array, got 1D array instead:
+array=[1.799e+01 1.038e+01 1.228e+02 1.001e+03 1.184e-01 2.776e-01 3.001e-01
+ 1.471e-01 2.419e-01 7.871e-02 1.095e+00 9.053e-01 8.589e+00 1.534e+02
+ 6.399e-03 4.904e-02 5.373e-02 1.587e-02 3.003e-02 6.193e-03 2.538e+01
+ 1.733e+01 1.846e+02 2.019e+03 1.622e-01 6.656e-01 7.119e-01 2.654e-01
+ 4.601e-01 1.189e-01].
+Reshape your data either using array.reshape(-1, 1) if your data has a single feature or array.reshape(1, -1) if it contains a single sample.
+2026-01-20 19:05:39,535 - medical_ai.api - INFO - Received prediction request
+2026-01-20 19:05:39,536 - medical_ai.api - INFO - Prediction: Malignant (confidence: 100.00%)
+2026-01-20 19:05:39,536 - medical_ai.api - WARNING - LLM Explanation failed: Expected 2D array, got 1D array instead:
+array=[1.799e+01 1.038e+01 1.228e+02 1.001e+03 1.184e-01 2.776e-01 3.001e-01
+ 1.471e-01 2.419e-01 7.871e-02 1.095e+00 9.053e-01 8.589e+00 1.534e+02
+ 6.399e-03 4.904e-02 5.373e-02 1.587e-02 3.003e-02 6.193e-03 2.538e+01
+ 1.733e+01 1.846e+02 2.019e+03 1.622e-01 6.656e-01 7.119e-01 2.654e-01
+ 4.601e-01 1.189e-01].
+Reshape your data either using array.reshape(-1, 1) if your data has a single feature or array.reshape(1, -1) if it contains a single sample.
+2026-01-20 19:06:46,089 - medical_ai.api - INFO - Shutting down Medical AI Diagnosis API
+2026-01-20 19:06:46,491 - medical_ai.api - INFO - Starting Medical AI Diagnosis API
+2026-01-20 19:06:46,491 - medical_ai.api - INFO - Initializing predictor with logistic_regression
+2026-01-20 19:06:46,491 - medical_ai.models - INFO - Loading logistic_regression from /Users/renatocesarcouto/Documents/Pessoal/Fase2/models/logistic_regression.joblib
+2026-01-20 19:06:47,115 - medical_ai.models - INFO - Model loaded successfully
+2026-01-20 19:06:47,115 - medical_ai.models - INFO - Loading scaler from /Users/renatocesarcouto/Documents/Pessoal/Fase2/models/scaler.joblib
+2026-01-20 19:06:47,116 - medical_ai.models - INFO - Scaler loaded successfully
+2026-01-20 19:06:47,116 - medical_ai.api - INFO - Predictor initialized successfully
+2026-01-20 19:06:47,116 - medical_ai.api - INFO - ✅ API startup complete
+2026-01-20 19:07:46,697 - medical_ai.api - INFO - ============================================================
+2026-01-20 19:07:46,697 - medical_ai.api - INFO - MEDICAL AI DIAGNOSIS SYSTEM - API SERVER
+2026-01-20 19:07:46,697 - medical_ai.api - INFO - ============================================================
+2026-01-20 19:07:46,697 - medical_ai.api - INFO - Host: 0.0.0.0
+2026-01-20 19:07:46,697 - medical_ai.api - INFO - Port: 8000
+2026-01-20 19:07:46,697 - medical_ai.api - INFO - Reload: True
+2026-01-20 19:07:46,697 - medical_ai.api - INFO - ============================================================
+2026-01-20 19:07:46,697 - medical_ai.api - INFO - 
+Starting server...
+2026-01-20 19:07:46,697 - medical_ai.api - INFO - API docs: http://0.0.0.0:8000/docs
+2026-01-20 19:07:46,697 - medical_ai.api - INFO - Health check: http://0.0.0.0:8000/health
+2026-01-20 19:07:46,697 - medical_ai.api - INFO - 
+Press CTRL+C to stop
+
+2026-01-20 19:07:46,714 - medical_ai.api - INFO - Shutting down Medical AI Diagnosis API
+2026-01-20 19:08:48,589 - medical_ai.api - INFO - ============================================================
+2026-01-20 19:08:48,589 - medical_ai.api - INFO - MEDICAL AI DIAGNOSIS SYSTEM - API SERVER
+2026-01-20 19:08:48,589 - medical_ai.api - INFO - ============================================================
+2026-01-20 19:08:48,589 - medical_ai.api - INFO - Host: 0.0.0.0
+2026-01-20 19:08:48,589 - medical_ai.api - INFO - Port: 8000
+2026-01-20 19:08:48,589 - medical_ai.api - INFO - Reload: True
+2026-01-20 19:08:48,589 - medical_ai.api - INFO - ============================================================
+2026-01-20 19:08:48,589 - medical_ai.api - INFO - 
+Starting server...
+2026-01-20 19:08:48,589 - medical_ai.api - INFO - API docs: http://0.0.0.0:8000/docs
+2026-01-20 19:08:48,589 - medical_ai.api - INFO - Health check: http://0.0.0.0:8000/health
+2026-01-20 19:08:48,589 - medical_ai.api - INFO - 
+Press CTRL+C to stop
+
+2026-01-20 19:08:48,929 - medical_ai.api - INFO - Starting Medical AI Diagnosis API
+2026-01-20 19:08:48,929 - medical_ai.api - INFO - Initializing predictor with logistic_regression
+2026-01-20 19:08:48,929 - medical_ai.models - INFO - Loading logistic_regression from /Users/renatocesarcouto/Documents/Pessoal/Fase2/models/logistic_regression.joblib
+2026-01-20 19:08:49,452 - medical_ai.models - INFO - Model loaded successfully
+2026-01-20 19:08:49,452 - medical_ai.models - INFO - Loading scaler from /Users/renatocesarcouto/Documents/Pessoal/Fase2/models/scaler.joblib
+2026-01-20 19:08:49,452 - medical_ai.models - INFO - Scaler loaded successfully
+2026-01-20 19:08:49,452 - medical_ai.api - INFO - Predictor initialized successfully
+2026-01-20 19:08:49,452 - medical_ai.api - INFO - ✅ API startup complete
+2026-01-20 19:08:56,881 - medical_ai.api - INFO - Received prediction request
+2026-01-20 19:08:56,883 - medical_ai.api - INFO - Prediction: Malignant (confidence: 100.00%)
+2026-01-20 19:08:56,913 - medical_ai.api - WARNING - LLM Explanation failed: Expected 2D array, got 1D array instead:
+array=[1.799e+01 1.038e+01 1.228e+02 1.001e+03 1.184e-01 2.776e-01 3.001e-01
+ 1.471e-01 2.419e-01 7.871e-02 1.095e+00 9.053e-01 8.589e+00 1.534e+02
+ 6.399e-03 4.904e-02 5.373e-02 1.587e-02 3.003e-02 6.193e-03 2.538e+01
+ 1.733e+01 1.846e+02 2.019e+03 1.622e-01 6.656e-01 7.119e-01 2.654e-01
+ 4.601e-01 1.189e-01].
+Reshape your data either using array.reshape(-1, 1) if your data has a single feature or array.reshape(1, -1) if it contains a single sample.
+2026-01-20 19:10:21,915 - medical_ai.api - INFO - Received prediction request
+2026-01-20 19:10:21,917 - medical_ai.api - INFO - Prediction: Malignant (confidence: 100.00%)
+2026-01-20 19:10:21,918 - medical_ai.api - WARNING - LLM Explanation failed: Expected 2D array, got 1D array instead:
+array=[1.799e+01 1.038e+01 1.228e+02 1.001e+03 1.184e-01 2.776e-01 3.001e-01
+ 1.471e-01 2.419e-01 7.871e-02 1.095e+00 9.053e-01 8.589e+00 1.534e+02
+ 6.399e-03 4.904e-02 5.373e-02 1.587e-02 3.003e-02 6.193e-03 2.538e+01
+ 1.733e+01 1.846e+02 2.019e+03 1.622e-01 6.656e-01 7.119e-01 2.654e-01
+ 4.601e-01 1.189e-01].
+Reshape your data either using array.reshape(-1, 1) if your data has a single feature or array.reshape(1, -1) if it contains a single sample.
+2026-01-20 19:11:06,026 - medical_ai.api - INFO - Shutting down Medical AI Diagnosis API
+2026-01-20 19:11:06,318 - medical_ai.api - INFO - Starting Medical AI Diagnosis API
+2026-01-20 19:11:06,318 - medical_ai.api - INFO - Initializing predictor with logistic_regression
+2026-01-20 19:11:06,318 - medical_ai.models - INFO - Loading logistic_regression from /Users/renatocesarcouto/Documents/Pessoal/Fase2/models/logistic_regression.joblib
+2026-01-20 19:11:06,858 - medical_ai.models - INFO - Model loaded successfully
+2026-01-20 19:11:06,858 - medical_ai.models - INFO - Loading scaler from /Users/renatocesarcouto/Documents/Pessoal/Fase2/models/scaler.joblib
+2026-01-20 19:11:06,858 - medical_ai.models - INFO - Scaler loaded successfully
+2026-01-20 19:11:06,858 - medical_ai.api - INFO - Predictor initialized successfully
+2026-01-20 19:11:06,858 - medical_ai.api - INFO - ✅ API startup complete
+2026-01-20 19:12:07,712 - medical_ai.api - INFO - ============================================================
+2026-01-20 19:12:07,712 - medical_ai.api - INFO - MEDICAL AI DIAGNOSIS SYSTEM - API SERVER
+2026-01-20 19:12:07,712 - medical_ai.api - INFO - ============================================================
+2026-01-20 19:12:07,712 - medical_ai.api - INFO - Host: 0.0.0.0
+2026-01-20 19:12:07,712 - medical_ai.api - INFO - Port: 8000
+2026-01-20 19:12:07,712 - medical_ai.api - INFO - Reload: True
+2026-01-20 19:12:07,712 - medical_ai.api - INFO - ============================================================
+2026-01-20 19:12:07,712 - medical_ai.api - INFO - 
+Starting server...
+2026-01-20 19:12:07,712 - medical_ai.api - INFO - API docs: http://0.0.0.0:8000/docs
+2026-01-20 19:12:07,712 - medical_ai.api - INFO - Health check: http://0.0.0.0:8000/health
+2026-01-20 19:12:07,712 - medical_ai.api - INFO - 
+Press CTRL+C to stop
+
+2026-01-20 19:12:08,032 - medical_ai.api - INFO - Starting Medical AI Diagnosis API
+2026-01-20 19:12:08,032 - medical_ai.api - INFO - Initializing predictor with logistic_regression
+2026-01-20 19:12:08,032 - medical_ai.models - INFO - Loading logistic_regression from /Users/renatocesarcouto/Documents/Pessoal/Fase2/models/logistic_regression.joblib
+2026-01-20 19:12:08,543 - medical_ai.models - INFO - Model loaded successfully
+2026-01-20 19:12:08,543 - medical_ai.models - INFO - Loading scaler from /Users/renatocesarcouto/Documents/Pessoal/Fase2/models/scaler.joblib
+2026-01-20 19:12:08,543 - medical_ai.models - INFO - Scaler loaded successfully
+2026-01-20 19:12:08,543 - medical_ai.api - INFO - Predictor initialized successfully
+2026-01-20 19:12:08,543 - medical_ai.api - INFO - ✅ API startup complete
+2026-01-20 19:12:19,713 - medical_ai.api - INFO - Received prediction request
+2026-01-20 19:12:19,716 - medical_ai.api - INFO - Prediction: Malignant (confidence: 100.00%)
+2026-01-20 19:12:19,785 - medical_ai.api - WARNING - LLM Explanation failed: Expected 2D array, got 1D array instead:
+array=[1.799e+01 1.038e+01 1.228e+02 1.001e+03 1.184e-01 2.776e-01 3.001e-01
+ 1.471e-01 2.419e-01 7.871e-02 1.095e+00 9.053e-01 8.589e+00 1.534e+02
+ 6.399e-03 4.904e-02 5.373e-02 1.587e-02 3.003e-02 6.193e-03 2.538e+01
+ 1.733e+01 1.846e+02 2.019e+03 1.622e-01 6.656e-01 7.119e-01 2.654e-01
+ 4.601e-01 1.189e-01].
+Reshape your data either using array.reshape(-1, 1) if your data has a single feature or array.reshape(1, -1) if it contains a single sample.
+2026-01-20 19:12:27,896 - medical_ai.api - INFO - Received prediction request
+2026-01-20 19:12:27,898 - medical_ai.api - INFO - Prediction: Malignant (confidence: 100.00%)
+2026-01-20 19:12:27,898 - medical_ai.api - WARNING - LLM Explanation failed: Expected 2D array, got 1D array instead:
+array=[1.799e+01 1.038e+01 1.228e+02 1.001e+03 1.184e-01 2.776e-01 3.001e-01
+ 1.471e-01 2.419e-01 7.871e-02 1.095e+00 9.053e-01 8.589e+00 1.534e+02
+ 6.399e-03 4.904e-02 5.373e-02 1.587e-02 3.003e-02 6.193e-03 2.538e+01
+ 1.733e+01 1.846e+02 2.019e+03 1.622e-01 6.656e-01 7.119e-01 2.654e-01
+ 4.601e-01 1.189e-01].
+Reshape your data either using array.reshape(-1, 1) if your data has a single feature or array.reshape(1, -1) if it contains a single sample.
+2026-01-20 19:12:28,867 - medical_ai.api - INFO - Received prediction request
+2026-01-20 19:12:28,868 - medical_ai.api - INFO - Prediction: Malignant (confidence: 100.00%)
+2026-01-20 19:12:28,868 - medical_ai.api - WARNING - LLM Explanation failed: Expected 2D array, got 1D array instead:
+array=[1.799e+01 1.038e+01 1.228e+02 1.001e+03 1.184e-01 2.776e-01 3.001e-01
+ 1.471e-01 2.419e-01 7.871e-02 1.095e+00 9.053e-01 8.589e+00 1.534e+02
+ 6.399e-03 4.904e-02 5.373e-02 1.587e-02 3.003e-02 6.193e-03 2.538e+01
+ 1.733e+01 1.846e+02 2.019e+03 1.622e-01 6.656e-01 7.119e-01 2.654e-01
+ 4.601e-01 1.189e-01].
+Reshape your data either using array.reshape(-1, 1) if your data has a single feature or array.reshape(1, -1) if it contains a single sample.
+2026-01-20 19:13:57,380 - medical_ai.api - INFO - ============================================================
+2026-01-20 19:13:57,380 - medical_ai.api - INFO - MEDICAL AI DIAGNOSIS SYSTEM - API SERVER
+2026-01-20 19:13:57,380 - medical_ai.api - INFO - ============================================================
+2026-01-20 19:13:57,380 - medical_ai.api - INFO - Host: 0.0.0.0
+2026-01-20 19:13:57,380 - medical_ai.api - INFO - Port: 8000
+2026-01-20 19:13:57,380 - medical_ai.api - INFO - Reload: True
+2026-01-20 19:13:57,380 - medical_ai.api - INFO - ============================================================
+2026-01-20 19:13:57,380 - medical_ai.api - INFO - 
+Starting server...
+2026-01-20 19:13:57,380 - medical_ai.api - INFO - API docs: http://0.0.0.0:8000/docs
+2026-01-20 19:13:57,380 - medical_ai.api - INFO - Health check: http://0.0.0.0:8000/health
+2026-01-20 19:13:57,380 - medical_ai.api - INFO - 
+Press CTRL+C to stop
+
+2026-01-20 19:13:57,729 - medical_ai.api - INFO - Starting Medical AI Diagnosis API
+2026-01-20 19:13:57,729 - medical_ai.api - INFO - Initializing predictor with logistic_regression
+2026-01-20 19:13:57,730 - medical_ai.models - INFO - Loading logistic_regression from /Users/renatocesarcouto/Documents/Pessoal/Fase2/models/logistic_regression.joblib
+2026-01-20 19:13:58,256 - medical_ai.models - INFO - Model loaded successfully
+2026-01-20 19:13:58,256 - medical_ai.models - INFO - Loading scaler from /Users/renatocesarcouto/Documents/Pessoal/Fase2/models/scaler.joblib
+2026-01-20 19:13:58,257 - medical_ai.models - INFO - Scaler loaded successfully
+2026-01-20 19:13:58,257 - medical_ai.api - INFO - Predictor initialized successfully
+2026-01-20 19:13:58,257 - medical_ai.api - INFO - ✅ API startup complete
+2026-01-20 19:14:22,778 - medical_ai.api - INFO - ============================================================
+2026-01-20 19:14:22,778 - medical_ai.api - INFO - MEDICAL AI DIAGNOSIS SYSTEM - API SERVER
+2026-01-20 19:14:22,778 - medical_ai.api - INFO - ============================================================
+2026-01-20 19:14:22,778 - medical_ai.api - INFO - Host: 0.0.0.0
+2026-01-20 19:14:22,778 - medical_ai.api - INFO - Port: 8000
+2026-01-20 19:14:22,778 - medical_ai.api - INFO - Reload: True
+2026-01-20 19:14:22,778 - medical_ai.api - INFO - ============================================================
+2026-01-20 19:14:22,778 - medical_ai.api - INFO - 
+Starting server...
+2026-01-20 19:14:22,778 - medical_ai.api - INFO - API docs: http://0.0.0.0:8000/docs
+2026-01-20 19:14:22,778 - medical_ai.api - INFO - Health check: http://0.0.0.0:8000/health
+2026-01-20 19:14:22,778 - medical_ai.api - INFO - 
+Press CTRL+C to stop
+
+2026-01-20 19:14:23,119 - medical_ai.api - INFO - Starting Medical AI Diagnosis API
+2026-01-20 19:14:23,119 - medical_ai.api - INFO - Initializing predictor with logistic_regression
+2026-01-20 19:14:23,119 - medical_ai.models - INFO - Loading logistic_regression from /Users/renatocesarcouto/Documents/Pessoal/Fase2/models/logistic_regression.joblib
+2026-01-20 19:14:23,639 - medical_ai.models - INFO - Model loaded successfully
+2026-01-20 19:14:23,639 - medical_ai.models - INFO - Loading scaler from /Users/renatocesarcouto/Documents/Pessoal/Fase2/models/scaler.joblib
+2026-01-20 19:14:23,639 - medical_ai.models - INFO - Scaler loaded successfully
+2026-01-20 19:14:23,639 - medical_ai.api - INFO - Predictor initialized successfully
+2026-01-20 19:14:23,639 - medical_ai.api - INFO - ✅ API startup complete
+2026-01-20 19:14:49,603 - medical_ai.api - INFO - Received prediction request
+2026-01-20 19:14:49,606 - medical_ai.api - INFO - Prediction: Malignant (confidence: 100.00%)
+2026-01-20 19:14:49,674 - medical_ai.api - WARNING - LLM Explanation failed: Expected 2D array, got 1D array instead:
+array=[1.799e+01 1.038e+01 1.228e+02 1.001e+03 1.184e-01 2.776e-01 3.001e-01
+ 1.471e-01 2.419e-01 7.871e-02 1.095e+00 9.053e-01 8.589e+00 1.534e+02
+ 6.399e-03 4.904e-02 5.373e-02 1.587e-02 3.003e-02 6.193e-03 2.538e+01
+ 1.733e+01 1.846e+02 2.019e+03 1.622e-01 6.656e-01 7.119e-01 2.654e-01
+ 4.601e-01 1.189e-01].
+Reshape your data either using array.reshape(-1, 1) if your data has a single feature or array.reshape(1, -1) if it contains a single sample.
+2026-01-20 19:18:05,259 - medical_ai.api - INFO - Shutting down Medical AI Diagnosis API
+2026-01-20 19:20:51,171 - medical_ai.api - INFO - ============================================================
+2026-01-20 19:20:51,172 - medical_ai.api - INFO - MEDICAL AI DIAGNOSIS SYSTEM - API SERVER
+2026-01-20 19:20:51,172 - medical_ai.api - INFO - ============================================================
+2026-01-20 19:20:51,172 - medical_ai.api - INFO - Host: 0.0.0.0
+2026-01-20 19:20:51,172 - medical_ai.api - INFO - Port: 8000
+2026-01-20 19:20:51,172 - medical_ai.api - INFO - Reload: True
+2026-01-20 19:20:51,172 - medical_ai.api - INFO - ============================================================
+2026-01-20 19:20:51,172 - medical_ai.api - INFO - 
+Starting server...
+2026-01-20 19:20:51,172 - medical_ai.api - INFO - API docs: http://0.0.0.0:8000/docs
+2026-01-20 19:20:51,172 - medical_ai.api - INFO - Health check: http://0.0.0.0:8000/health
+2026-01-20 19:20:51,172 - medical_ai.api - INFO - 
+Press CTRL+C to stop
+
+2026-01-20 19:20:51,608 - medical_ai.api - INFO - Starting Medical AI Diagnosis API
+2026-01-20 19:20:51,608 - medical_ai.api - INFO - Initializing predictor with logistic_regression
+2026-01-20 19:20:51,608 - medical_ai.models - INFO - Loading logistic_regression from /Users/renatocesarcouto/Documents/Pessoal/Fase2/models/logistic_regression.joblib
+2026-01-20 19:20:52,478 - medical_ai.models - INFO - Model loaded successfully
+2026-01-20 19:20:52,478 - medical_ai.models - INFO - Loading scaler from /Users/renatocesarcouto/Documents/Pessoal/Fase2/models/scaler.joblib
+2026-01-20 19:20:52,479 - medical_ai.models - INFO - Scaler loaded successfully
+2026-01-20 19:20:52,479 - medical_ai.api - INFO - Predictor initialized successfully
+2026-01-20 19:20:52,479 - medical_ai.api - INFO - ✅ API startup complete
+2026-01-20 19:21:10,861 - medical_ai.api - INFO - Received prediction request
+2026-01-20 19:21:10,864 - medical_ai.api - INFO - Prediction: Malignant (confidence: 100.00%)
+2026-01-20 19:21:10,912 - medical_ai.api - WARNING - LLM Explanation failed: Expected 2D array, got 1D array instead:
+array=[1.799e+01 1.038e+01 1.228e+02 1.001e+03 1.184e-01 2.776e-01 3.001e-01
+ 1.471e-01 2.419e-01 7.871e-02 1.095e+00 9.053e-01 8.589e+00 1.534e+02
+ 6.399e-03 4.904e-02 5.373e-02 1.587e-02 3.003e-02 6.193e-03 2.538e+01
+ 1.733e+01 1.846e+02 2.019e+03 1.622e-01 6.656e-01 7.119e-01 2.654e-01
+ 4.601e-01 1.189e-01].
+Reshape your data either using array.reshape(-1, 1) if your data has a single feature or array.reshape(1, -1) if it contains a single sample.
+2026-01-20 19:21:19,110 - medical_ai.api - INFO - Received prediction request
+2026-01-20 19:21:19,111 - medical_ai.api - INFO - Prediction: Malignant (confidence: 100.00%)
+2026-01-20 19:21:19,111 - medical_ai.api - WARNING - LLM Explanation failed: Expected 2D array, got 1D array instead:
+array=[1.799e+01 1.038e+01 1.228e+02 1.001e+03 1.184e-01 2.776e-01 3.001e-01
+ 1.471e-01 2.419e-01 7.871e-02 1.095e+00 9.053e-01 8.589e+00 1.534e+02
+ 6.399e-03 4.904e-02 5.373e-02 1.587e-02 3.003e-02 6.193e-03 2.538e+01
+ 1.733e+01 1.846e+02 2.019e+03 1.622e-01 6.656e-01 7.119e-01 2.654e-01
+ 4.601e-01 1.189e-01].
+Reshape your data either using array.reshape(-1, 1) if your data has a single feature or array.reshape(1, -1) if it contains a single sample.
+2026-01-20 19:21:21,625 - medical_ai.api - INFO - Received prediction request
+2026-01-20 19:21:21,626 - medical_ai.api - INFO - Prediction: Malignant (confidence: 100.00%)
+2026-01-20 19:21:21,627 - medical_ai.api - WARNING - LLM Explanation failed: Expected 2D array, got 1D array instead:
+array=[1.799e+01 1.038e+01 1.228e+02 1.001e+03 1.184e-01 2.776e-01 3.001e-01
+ 1.471e-01 2.419e-01 7.871e-02 1.095e+00 9.053e-01 8.589e+00 1.534e+02
+ 6.399e-03 4.904e-02 5.373e-02 1.587e-02 3.003e-02 6.193e-03 2.538e+01
+ 1.733e+01 1.846e+02 2.019e+03 1.622e-01 6.656e-01 7.119e-01 2.654e-01
+ 4.601e-01 1.189e-01].
+Reshape your data either using array.reshape(-1, 1) if your data has a single feature or array.reshape(1, -1) if it contains a single sample.
+2026-01-20 19:23:22,680 - medical_ai.api - INFO - Shutting down Medical AI Diagnosis API
+2026-01-20 19:23:23,071 - medical_ai.api - INFO - Starting Medical AI Diagnosis API
+2026-01-20 19:23:23,071 - medical_ai.api - INFO - Initializing predictor with logistic_regression
+2026-01-20 19:23:23,071 - medical_ai.models - INFO - Loading logistic_regression from /Users/renatocesarcouto/Documents/Pessoal/Fase2/models/logistic_regression.joblib
+2026-01-20 19:23:23,749 - medical_ai.models - INFO - Model loaded successfully
+2026-01-20 19:23:23,749 - medical_ai.models - INFO - Loading scaler from /Users/renatocesarcouto/Documents/Pessoal/Fase2/models/scaler.joblib
+2026-01-20 19:23:23,750 - medical_ai.models - INFO - Scaler loaded successfully
+2026-01-20 19:23:23,750 - medical_ai.api - INFO - Predictor initialized successfully
+2026-01-20 19:23:23,750 - medical_ai.api - INFO - ✅ API startup complete
+2026-01-20 19:25:00,317 - medical_ai.api - INFO - ============================================================
+2026-01-20 19:25:00,317 - medical_ai.api - INFO - MEDICAL AI DIAGNOSIS SYSTEM - API SERVER
+2026-01-20 19:25:00,318 - medical_ai.api - INFO - ============================================================
+2026-01-20 19:25:00,318 - medical_ai.api - INFO - Host: 0.0.0.0
+2026-01-20 19:25:00,318 - medical_ai.api - INFO - Port: 8000
+2026-01-20 19:25:00,318 - medical_ai.api - INFO - Reload: True
+2026-01-20 19:25:00,318 - medical_ai.api - INFO - ============================================================
+2026-01-20 19:25:00,318 - medical_ai.api - INFO - 
+Starting server...
+2026-01-20 19:25:00,318 - medical_ai.api - INFO - API docs: http://0.0.0.0:8000/docs
+2026-01-20 19:25:00,318 - medical_ai.api - INFO - Health check: http://0.0.0.0:8000/health
+2026-01-20 19:25:00,318 - medical_ai.api - INFO - 
+Press CTRL+C to stop
+
+2026-01-20 19:25:00,671 - medical_ai.api - INFO - Starting Medical AI Diagnosis API
+2026-01-20 19:25:00,671 - medical_ai.api - INFO - Initializing predictor with logistic_regression
+2026-01-20 19:25:00,671 - medical_ai.models - INFO - Loading logistic_regression from /Users/renatocesarcouto/Documents/Pessoal/Fase2/models/logistic_regression.joblib
+2026-01-20 19:25:01,317 - medical_ai.models - INFO - Model loaded successfully
+2026-01-20 19:25:01,317 - medical_ai.models - INFO - Loading scaler from /Users/renatocesarcouto/Documents/Pessoal/Fase2/models/scaler.joblib
+2026-01-20 19:25:01,318 - medical_ai.models - INFO - Scaler loaded successfully
+2026-01-20 19:25:01,318 - medical_ai.api - INFO - Predictor initialized successfully
+2026-01-20 19:25:01,318 - medical_ai.api - INFO - ✅ API startup complete
+2026-01-20 19:25:51,071 - medical_ai.api - INFO - Received prediction request
+2026-01-20 19:25:51,073 - medical_ai.api - INFO - Prediction: Malignant (confidence: 100.00%)
+2026-01-20 19:25:51,142 - medical_ai.models - INFO - Connecting to Ollama at http://localhost:11434/api/generate
+2026-01-20 19:25:51,158 - medical_ai.models - WARNING - Ollama failed (404 Client Error: Not Found for url: http://localhost:11434/api/generate). Falling back to template.
+2026-01-20 19:26:32,710 - medical_ai.api - INFO - Received prediction request
+2026-01-20 19:26:32,711 - medical_ai.api - INFO - Prediction: Malignant (confidence: 100.00%)
+2026-01-20 19:26:32,711 - medical_ai.models - INFO - Connecting to Ollama at http://localhost:11434/api/generate
+2026-01-20 19:26:32,721 - medical_ai.models - WARNING - Ollama failed (404 Client Error: Not Found for url: http://localhost:11434/api/generate). Falling back to template.
+2026-01-20 19:26:32,838 - medical_ai.api - INFO - Received prediction request
+2026-01-20 19:26:32,838 - medical_ai.api - INFO - Prediction: Malignant (confidence: 100.00%)
+2026-01-20 19:26:32,838 - medical_ai.models - INFO - Connecting to Ollama at http://localhost:11434/api/generate
+2026-01-20 19:26:32,844 - medical_ai.models - WARNING - Ollama failed (404 Client Error: Not Found for url: http://localhost:11434/api/generate). Falling back to template.
+2026-01-20 19:26:33,836 - medical_ai.api - INFO - Received prediction request
+2026-01-20 19:26:33,836 - medical_ai.api - INFO - Prediction: Malignant (confidence: 100.00%)
+2026-01-20 19:26:33,837 - medical_ai.models - INFO - Connecting to Ollama at http://localhost:11434/api/generate
+2026-01-20 19:26:33,843 - medical_ai.models - WARNING - Ollama failed (404 Client Error: Not Found for url: http://localhost:11434/api/generate). Falling back to template.
+2026-01-20 19:26:36,873 - medical_ai.api - INFO - Received prediction request
+2026-01-20 19:26:36,874 - medical_ai.api - INFO - Prediction: Malignant (confidence: 100.00%)
+2026-01-20 19:26:36,875 - medical_ai.models - INFO - Connecting to Ollama at http://localhost:11434/api/generate
+2026-01-20 19:26:36,881 - medical_ai.models - WARNING - Ollama failed (404 Client Error: Not Found for url: http://localhost:11434/api/generate). Falling back to template.
+2026-01-20 19:29:47,170 - medical_ai.models - INFO - ============================================================
+2026-01-20 19:29:47,170 - medical_ai.models - INFO - MEDICAL AI DIAGNOSIS SYSTEM - TRAINING PIPELINE
+2026-01-20 19:29:47,170 - medical_ai.models - INFO - ============================================================
+2026-01-20 19:29:47,170 - medical_ai.models - INFO - 
+[Step 1/6] Loading dataset...
+2026-01-20 19:29:47,170 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 19:29:47,174 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 19:29:47,176 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 19:29:47,176 - medical_ai.models - INFO - 
+[Step 2/6] Preprocessing data...
+2026-01-20 19:29:47,176 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 19:29:47,180 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 19:29:47,180 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 19:29:47,180 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 19:29:47,180 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 19:29:47,180 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 19:29:47,180 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 19:29:47,181 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 19:29:47,181 - medical_ai.data - INFO - Fitting StandardScaler on training data
+2026-01-20 19:29:47,181 - medical_ai.data - INFO - StandardScaler fitted successfully
+2026-01-20 19:29:47,182 - medical_ai.data - INFO - Saving scaler to /Users/renatocesarcouto/Documents/Pessoal/Fase2/models/scaler.joblib
+2026-01-20 19:29:47,183 - medical_ai.data - INFO - Scaler saved successfully
+2026-01-20 19:29:47,183 - medical_ai.models - INFO - 
+[Step 3/6] Training logistic_regression...
+2026-01-20 19:29:47,183 - medical_ai.models - INFO - Creating Logistic Regression model
+2026-01-20 19:29:47,183 - medical_ai.models - INFO - Training logistic_regression on 341 samples
+2026-01-20 19:29:47,191 - medical_ai.models - INFO - logistic_regression trained successfully
+2026-01-20 19:29:47,192 - medical_ai.models - INFO - Training accuracy: 0.9883
+2026-01-20 19:29:47,192 - medical_ai.models - INFO - Validation accuracy: 0.9737
+2026-01-20 19:29:47,192 - medical_ai.models - INFO - Saving logistic_regression to /Users/renatocesarcouto/Documents/Pessoal/Fase2/models/logistic_regression.joblib
+2026-01-20 19:29:47,192 - medical_ai.models - INFO - Model saved successfully
+2026-01-20 19:29:47,192 - medical_ai.models - INFO - 
+[Step 4/6] Evaluating on test set...
+2026-01-20 19:29:47,192 - medical_ai.models - INFO - Calculating medical metrics
+2026-01-20 19:29:47,195 - medical_ai.models - INFO - Accuracy: 0.9737
+2026-01-20 19:29:47,195 - medical_ai.models - INFO - Sensitivity: 0.9524
+2026-01-20 19:29:47,196 - medical_ai.models - INFO - Specificity: 0.9861
+2026-01-20 19:29:47,196 - medical_ai.models - INFO - False Negatives: 2 (critical)
+2026-01-20 19:29:47,196 - medical_ai.models - INFO - False Positives: 1
+2026-01-20 19:29:47,196 - medical_ai.models - INFO - 
+[Step 5/6] Generating SHAP analysis...
+2026-01-20 19:29:47,196 - medical_ai.models - INFO - Generating SHAP analysis
+2026-01-20 19:29:47,197 - medical_ai.models - INFO - Top 10 features by SHAP importance:
+2026-01-20 19:29:47,197 - medical_ai.models - INFO -   1. worst texture: 1.148
+2026-01-20 19:29:47,198 - medical_ai.models - INFO -   2. mean concave points: 0.818
+2026-01-20 19:29:47,198 - medical_ai.models - INFO -   3. worst symmetry: 0.649
+2026-01-20 19:29:47,198 - medical_ai.models - INFO -   4. radius error: 0.644
+2026-01-20 19:29:47,198 - medical_ai.models - INFO -   5. worst radius: 0.581
+2026-01-20 19:29:47,198 - medical_ai.models - INFO -   6. compactness error: 0.572
+2026-01-20 19:29:47,198 - medical_ai.models - INFO -   7. worst concavity: 0.564
+2026-01-20 19:29:47,198 - medical_ai.models - INFO -   8. mean concavity: 0.551
+2026-01-20 19:29:47,198 - medical_ai.models - INFO -   9. worst area: 0.526
+2026-01-20 19:29:47,198 - medical_ai.models - INFO -   10. fractal dimension error: 0.478
+2026-01-20 19:29:47,198 - medical_ai.models - INFO - 
+[Step 6/6] Comparing with Fase 1 baseline...
+2026-01-20 19:29:47,198 - medical_ai.models - INFO - ✅ accuracy: 0.9737 vs 0.9737 (-0.0000)
+2026-01-20 19:29:47,198 - medical_ai.models - INFO - ⚠️ recall_sensitivity: 0.9524 vs 0.9861 (-0.0337)
+2026-01-20 19:29:47,198 - medical_ai.models - INFO - ✅ specificity: 0.9861 vs 0.9524 (+0.0337)
+2026-01-20 19:29:47,199 - medical_ai.models - INFO - 
+✅ Training complete! Metadata saved to /Users/renatocesarcouto/Documents/Pessoal/Fase2/models/metadata.json
+2026-01-20 19:29:47,199 - medical_ai.models - INFO - 
+============================================================
+2026-01-20 19:29:47,199 - medical_ai.models - INFO - TRAINING SUMMARY
+2026-01-20 19:29:47,199 - medical_ai.models - INFO - ============================================================
+2026-01-20 19:29:47,199 - medical_ai.models - INFO - Model: logistic_regression
+2026-01-20 19:29:47,199 - medical_ai.models - INFO - Accuracy: 0.9737
+2026-01-20 19:29:47,199 - medical_ai.models - INFO - Sensitivity: 0.9524
+2026-01-20 19:29:47,199 - medical_ai.models - INFO - Specificity: 0.9861
+2026-01-20 19:29:47,199 - medical_ai.models - INFO - False Negatives: 2
+2026-01-20 19:29:47,199 - medical_ai.models - INFO - False Positives: 1
+2026-01-20 19:29:47,199 - medical_ai.models - INFO - ============================================================
+2026-01-20 19:30:32,667 - medical_ai.models - INFO - ============================================================
+2026-01-20 19:30:32,667 - medical_ai.models - INFO - MEDICAL AI DIAGNOSIS SYSTEM - TRAINING PIPELINE
+2026-01-20 19:30:32,667 - medical_ai.models - INFO - ============================================================
+2026-01-20 19:30:32,667 - medical_ai.models - INFO - 
+[Step 1/6] Loading dataset...
+2026-01-20 19:30:32,667 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 19:30:32,669 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 19:30:32,669 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 19:30:32,670 - medical_ai.models - INFO - 
+[Step 2/6] Preprocessing data...
+2026-01-20 19:30:32,670 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 19:30:32,671 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 19:30:32,671 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 19:30:32,671 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 19:30:32,671 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 19:30:32,671 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 19:30:32,671 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 19:30:32,671 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 19:30:32,671 - medical_ai.data - INFO - Fitting StandardScaler on training data
+2026-01-20 19:30:32,671 - medical_ai.data - INFO - StandardScaler fitted successfully
+2026-01-20 19:30:32,672 - medical_ai.data - INFO - Saving scaler to /Users/renatocesarcouto/Documents/Pessoal/Fase2/models/scaler.joblib
+2026-01-20 19:30:32,673 - medical_ai.data - INFO - Scaler saved successfully
+2026-01-20 19:30:32,673 - medical_ai.models - INFO - 
+[Step 3/6] Training logistic_regression...
+2026-01-20 19:30:32,673 - medical_ai.models - INFO - Creating Logistic Regression model
+2026-01-20 19:30:32,673 - medical_ai.models - INFO - Training logistic_regression on 341 samples
+2026-01-20 19:30:32,675 - medical_ai.models - INFO - logistic_regression trained successfully
+2026-01-20 19:30:32,676 - medical_ai.models - INFO - Training accuracy: 0.9883
+2026-01-20 19:30:32,676 - medical_ai.models - INFO - Validation accuracy: 0.9737
+2026-01-20 19:30:32,676 - medical_ai.models - INFO - Saving logistic_regression to /Users/renatocesarcouto/Documents/Pessoal/Fase2/models/logistic_regression.joblib
+2026-01-20 19:30:32,676 - medical_ai.models - INFO - Model saved successfully
+2026-01-20 19:30:32,676 - medical_ai.models - INFO - 
+[Step 4/6] Evaluating on test set...
+2026-01-20 19:30:32,676 - medical_ai.models - INFO - Calculating medical metrics
+2026-01-20 19:30:32,679 - medical_ai.models - INFO - Accuracy: 0.9737
+2026-01-20 19:30:32,679 - medical_ai.models - INFO - Sensitivity: 0.9524
+2026-01-20 19:30:32,679 - medical_ai.models - INFO - Specificity: 0.9861
+2026-01-20 19:30:32,679 - medical_ai.models - INFO - False Negatives: 2 (critical)
+2026-01-20 19:30:32,679 - medical_ai.models - INFO - False Positives: 1
+2026-01-20 19:30:32,679 - medical_ai.models - INFO - 
+[Step 5/6] Generating SHAP analysis...
+2026-01-20 19:30:32,679 - medical_ai.models - INFO - Generating SHAP analysis
+2026-01-20 19:30:32,680 - medical_ai.models - INFO - Top 10 features by SHAP importance:
+2026-01-20 19:30:32,680 - medical_ai.models - INFO -   1. worst texture: 1.148
+2026-01-20 19:30:32,680 - medical_ai.models - INFO -   2. mean concave points: 0.818
+2026-01-20 19:30:32,680 - medical_ai.models - INFO -   3. worst symmetry: 0.649
+2026-01-20 19:30:32,680 - medical_ai.models - INFO -   4. radius error: 0.644
+2026-01-20 19:30:32,680 - medical_ai.models - INFO -   5. worst radius: 0.581
+2026-01-20 19:30:32,680 - medical_ai.models - INFO -   6. compactness error: 0.572
+2026-01-20 19:30:32,680 - medical_ai.models - INFO -   7. worst concavity: 0.564
+2026-01-20 19:30:32,680 - medical_ai.models - INFO -   8. mean concavity: 0.551
+2026-01-20 19:30:32,680 - medical_ai.models - INFO -   9. worst area: 0.526
+2026-01-20 19:30:32,680 - medical_ai.models - INFO -   10. fractal dimension error: 0.478
+2026-01-20 19:30:32,681 - medical_ai.models - INFO - 
+[Step 6/6] Comparing with Fase 1 baseline...
+2026-01-20 19:30:32,681 - medical_ai.models - INFO - ✅ accuracy: 0.9737 vs 0.9737 (-0.0000)
+2026-01-20 19:30:32,681 - medical_ai.models - INFO - ⚠️ recall_sensitivity: 0.9524 vs 0.9861 (-0.0337)
+2026-01-20 19:30:32,681 - medical_ai.models - INFO - ✅ specificity: 0.9861 vs 0.9524 (+0.0337)
+2026-01-20 19:30:32,681 - medical_ai.models - INFO - 
+✅ Training complete! Metadata saved to /Users/renatocesarcouto/Documents/Pessoal/Fase2/models/metadata.json
+2026-01-20 19:30:32,681 - medical_ai.models - INFO - 
+============================================================
+2026-01-20 19:30:32,681 - medical_ai.models - INFO - TRAINING SUMMARY
+2026-01-20 19:30:32,681 - medical_ai.models - INFO - ============================================================
+2026-01-20 19:30:32,681 - medical_ai.models - INFO - Model: logistic_regression
+2026-01-20 19:30:32,681 - medical_ai.models - INFO - Accuracy: 0.9737
+2026-01-20 19:30:32,681 - medical_ai.models - INFO - Sensitivity: 0.9524
+2026-01-20 19:30:32,681 - medical_ai.models - INFO - Specificity: 0.9861
+2026-01-20 19:30:32,681 - medical_ai.models - INFO - False Negatives: 2
+2026-01-20 19:30:32,681 - medical_ai.models - INFO - False Positives: 1
+2026-01-20 19:30:32,681 - medical_ai.models - INFO - ============================================================
+2026-01-20 19:30:53,796 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 19:30:53,798 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 19:30:53,798 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 19:30:53,799 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 19:30:53,800 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 19:30:53,800 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 19:30:53,800 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 19:30:53,800 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 19:30:53,800 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 19:30:53,800 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 19:30:53,800 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 19:30:53,800 - medical_ai.data - INFO - Fitting StandardScaler on training data
+2026-01-20 19:30:53,801 - medical_ai.data - INFO - StandardScaler fitted successfully
+2026-01-20 19:30:53,801 - medical_ai.models - INFO - Starting Genetic Optimization for random_forest...
+2026-01-20 19:30:53,801 - medical_ai.models - INFO - Population: 10, Generations: 5
+2026-01-20 19:31:02,850 - medical_ai.models - INFO - Optimization Complete. Best Score: 0.9604
+2026-01-20 19:31:02,850 - medical_ai.models - INFO - Best Params: {'n_estimators': 75, 'max_depth': 6, 'min_samples_split': 2, 'min_samples_leaf': 1, 'criterion': 'entropy'}
+2026-01-20 19:31:02,981 - medical_ai.models - INFO - Optimization history plot saved to models/optimization_history.png
+2026-01-20 19:31:02,983 - medical_ai.models - INFO - Optimization results saved.
+2026-01-20 19:31:13,792 - medical_ai.api - INFO - ============================================================
+2026-01-20 19:31:13,793 - medical_ai.api - INFO - MEDICAL AI DIAGNOSIS SYSTEM - API SERVER
+2026-01-20 19:31:13,793 - medical_ai.api - INFO - ============================================================
+2026-01-20 19:31:13,793 - medical_ai.api - INFO - Host: 0.0.0.0
+2026-01-20 19:31:13,793 - medical_ai.api - INFO - Port: 8000
+2026-01-20 19:31:13,793 - medical_ai.api - INFO - Reload: True
+2026-01-20 19:31:13,793 - medical_ai.api - INFO - ============================================================
+2026-01-20 19:31:13,793 - medical_ai.api - INFO - 
+Starting server...
+2026-01-20 19:31:13,793 - medical_ai.api - INFO - API docs: http://0.0.0.0:8000/docs
+2026-01-20 19:31:13,793 - medical_ai.api - INFO - Health check: http://0.0.0.0:8000/health
+2026-01-20 19:31:13,793 - medical_ai.api - INFO - 
+Press CTRL+C to stop
+
+2026-01-20 19:32:23,823 - medical_ai.api - INFO - Received prediction request
+2026-01-20 19:32:23,824 - medical_ai.api - INFO - Prediction: Malignant (confidence: 100.00%)
+2026-01-20 19:32:23,824 - medical_ai.models - INFO - Connecting to Ollama at http://localhost:11434/api/generate
+2026-01-20 19:32:23,831 - medical_ai.models - WARNING - Ollama failed (404 Client Error: Not Found for url: http://localhost:11434/api/generate). Falling back to template.
+2026-01-20 19:32:25,297 - medical_ai.api - INFO - Received prediction request
+2026-01-20 19:32:25,298 - medical_ai.api - INFO - Prediction: Malignant (confidence: 100.00%)
+2026-01-20 19:32:25,298 - medical_ai.models - INFO - Connecting to Ollama at http://localhost:11434/api/generate
+2026-01-20 19:32:25,304 - medical_ai.models - WARNING - Ollama failed (404 Client Error: Not Found for url: http://localhost:11434/api/generate). Falling back to template.
+2026-01-20 19:34:25,509 - medical_ai.api - ERROR - Predictor not initialized
+2026-01-20 19:34:25,514 - medical_ai.api - ERROR - Predictor not initialized
+2026-01-20 19:34:25,515 - medical_ai.api - ERROR - Predictor not initialized
+2026-01-20 19:34:25,516 - medical_ai.api - ERROR - Predictor not initialized
+2026-01-20 19:34:25,527 - medical_ai.api - ERROR - Predictor not initialized
+2026-01-20 19:34:25,529 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 19:34:25,532 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 19:34:25,532 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 19:34:25,532 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 19:34:25,534 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 19:34:25,534 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 19:34:25,534 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 19:34:25,534 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 19:34:25,534 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 19:34:25,534 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 19:34:25,534 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 19:34:25,535 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 19:34:25,537 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 19:34:25,537 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 19:34:25,537 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 19:34:25,538 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 19:34:25,538 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 19:34:25,538 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 19:34:25,538 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 19:34:25,538 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 19:34:25,538 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 19:34:25,538 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 19:34:25,539 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 19:34:25,541 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 19:34:25,541 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 19:34:25,542 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 19:34:25,542 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 19:34:25,542 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 19:34:25,542 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 19:34:25,542 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 19:34:25,543 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 19:34:25,543 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 19:34:25,543 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 19:34:25,543 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 19:34:25,543 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 19:34:25,543 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 19:34:25,543 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 19:34:25,543 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 19:34:25,544 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 19:34:25,544 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 19:34:25,544 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 19:34:25,546 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 19:34:25,548 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 19:34:25,548 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 19:34:25,548 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 19:34:25,549 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 19:34:25,549 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 19:34:25,549 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 19:34:25,549 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 19:34:25,549 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 19:34:25,549 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 19:34:25,549 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 19:34:25,549 - medical_ai.data - INFO - Fitting StandardScaler on training data
+2026-01-20 19:34:25,550 - medical_ai.data - INFO - StandardScaler fitted successfully
+2026-01-20 19:34:25,550 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 19:34:25,552 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 19:34:25,552 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 19:34:25,552 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 19:34:25,553 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 19:34:25,553 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 19:34:25,553 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 19:34:25,553 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 19:34:25,553 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 19:34:25,553 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 19:34:25,553 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 19:34:25,553 - medical_ai.data - INFO - Fitting StandardScaler on training data
+2026-01-20 19:34:25,554 - medical_ai.data - INFO - StandardScaler fitted successfully
+2026-01-20 19:34:25,555 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 19:34:25,557 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 19:34:25,557 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 19:34:25,557 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 19:34:25,559 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 19:34:25,559 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 19:34:25,559 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 19:34:25,560 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 19:34:25,560 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 19:34:25,560 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 19:34:25,560 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 19:34:25,560 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 19:34:25,560 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 19:34:25,560 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 19:34:25,560 - medical_ai.data - INFO - Fitting StandardScaler on training data
+2026-01-20 19:34:25,560 - medical_ai.data - INFO - StandardScaler fitted successfully
+2026-01-20 19:34:25,561 - medical_ai.data - INFO - Saving scaler to /var/folders/pg/q_jsyc556cd_j2gm81ldyflr0000gn/T/tmpeclnw3uw.joblib
+2026-01-20 19:34:25,561 - medical_ai.data - INFO - Scaler saved successfully
+2026-01-20 19:34:25,561 - medical_ai.data - INFO - Loading scaler from /var/folders/pg/q_jsyc556cd_j2gm81ldyflr0000gn/T/tmpeclnw3uw.joblib
+2026-01-20 19:34:25,561 - medical_ai.data - INFO - Scaler loaded successfully
+2026-01-20 19:34:25,563 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 19:34:25,565 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 19:34:25,566 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 19:34:25,566 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 19:34:25,567 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 19:34:25,567 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 19:34:25,567 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 19:34:25,567 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 19:34:25,567 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 19:34:25,567 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 19:34:25,567 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 19:34:25,568 - medical_ai.models - INFO - Creating Logistic Regression model
+2026-01-20 19:34:25,568 - medical_ai.models - INFO - Creating Random Forest model
+2026-01-20 19:34:25,569 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 19:34:25,571 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 19:34:25,571 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 19:34:25,571 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 19:34:25,572 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 19:34:25,572 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 19:34:25,572 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 19:34:25,572 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 19:34:25,572 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 19:34:25,572 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 19:34:25,572 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 19:34:25,573 - medical_ai.data - INFO - Fitting StandardScaler on training data
+2026-01-20 19:34:25,573 - medical_ai.data - INFO - StandardScaler fitted successfully
+2026-01-20 19:34:25,574 - medical_ai.models - INFO - Creating Logistic Regression model
+2026-01-20 19:34:25,574 - medical_ai.models - INFO - Training logistic_regression on 341 samples
+2026-01-20 19:34:25,576 - medical_ai.models - INFO - logistic_regression trained successfully
+2026-01-20 19:34:25,576 - medical_ai.models - INFO - Training accuracy: 0.9883
+2026-01-20 19:34:25,577 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 19:34:25,578 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 19:34:25,579 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 19:34:25,579 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 19:34:25,580 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 19:34:25,580 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 19:34:25,580 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 19:34:25,580 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 19:34:25,580 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 19:34:25,580 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 19:34:25,580 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 19:34:25,580 - medical_ai.data - INFO - Fitting StandardScaler on training data
+2026-01-20 19:34:25,580 - medical_ai.data - INFO - StandardScaler fitted successfully
+2026-01-20 19:34:25,581 - medical_ai.models - INFO - Creating Random Forest model
+2026-01-20 19:34:25,581 - medical_ai.models - INFO - Training random_forest on 341 samples
+2026-01-20 19:34:25,632 - medical_ai.models - INFO - random_forest trained successfully
+2026-01-20 19:34:25,634 - medical_ai.models - INFO - Training accuracy: 1.0000
+2026-01-20 19:34:25,635 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 19:34:25,637 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 19:34:25,637 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 19:34:25,637 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 19:34:25,638 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 19:34:25,638 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 19:34:25,638 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 19:34:25,638 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 19:34:25,638 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 19:34:25,638 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 19:34:25,638 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 19:34:25,638 - medical_ai.data - INFO - Fitting StandardScaler on training data
+2026-01-20 19:34:25,638 - medical_ai.data - INFO - StandardScaler fitted successfully
+2026-01-20 19:34:25,639 - medical_ai.models - INFO - Creating Logistic Regression model
+2026-01-20 19:34:25,639 - medical_ai.models - INFO - Training logistic_regression on 341 samples
+2026-01-20 19:34:25,640 - medical_ai.models - INFO - logistic_regression trained successfully
+2026-01-20 19:34:25,640 - medical_ai.models - INFO - Training accuracy: 0.9883
+2026-01-20 19:34:25,641 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 19:34:25,643 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 19:34:25,643 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 19:34:25,643 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 19:34:25,644 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 19:34:25,644 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 19:34:25,644 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 19:34:25,644 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 19:34:25,644 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 19:34:25,644 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 19:34:25,644 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 19:34:25,644 - medical_ai.data - INFO - Fitting StandardScaler on training data
+2026-01-20 19:34:25,645 - medical_ai.data - INFO - StandardScaler fitted successfully
+2026-01-20 19:34:25,645 - medical_ai.models - INFO - Creating Logistic Regression model
+2026-01-20 19:34:25,645 - medical_ai.models - INFO - Training logistic_regression on 341 samples
+2026-01-20 19:34:25,646 - medical_ai.models - INFO - logistic_regression trained successfully
+2026-01-20 19:34:25,647 - medical_ai.models - INFO - Training accuracy: 0.9883
+2026-01-20 19:34:25,647 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 19:34:25,649 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 19:34:25,649 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 19:34:25,649 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 19:34:25,650 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 19:34:25,650 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 19:34:25,650 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 19:34:25,650 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 19:34:25,650 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 19:34:25,650 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 19:34:25,650 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 19:34:25,650 - medical_ai.data - INFO - Fitting StandardScaler on training data
+2026-01-20 19:34:25,651 - medical_ai.data - INFO - StandardScaler fitted successfully
+2026-01-20 19:34:25,651 - medical_ai.models - INFO - Creating Logistic Regression model
+2026-01-20 19:34:25,651 - medical_ai.models - INFO - Training logistic_regression on 341 samples
+2026-01-20 19:34:25,652 - medical_ai.models - INFO - logistic_regression trained successfully
+2026-01-20 19:34:25,653 - medical_ai.models - INFO - Training accuracy: 0.9883
+2026-01-20 19:34:25,653 - medical_ai.models - INFO - Saving logistic_regression to /var/folders/pg/q_jsyc556cd_j2gm81ldyflr0000gn/T/tmpg0ro3fc7.joblib
+2026-01-20 19:34:25,653 - medical_ai.models - INFO - Model saved successfully
+2026-01-20 19:34:25,653 - medical_ai.models - INFO - Creating Logistic Regression model
+2026-01-20 19:34:25,655 - medical_ai.models - INFO - Creating Logistic Regression model
+2026-01-20 19:34:25,655 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 19:34:25,658 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 19:34:25,658 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 19:34:25,658 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 19:34:25,659 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 19:34:25,659 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 19:34:25,659 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 19:34:25,659 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 19:34:25,659 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 19:34:25,659 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 19:34:25,659 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 19:34:25,659 - medical_ai.data - INFO - Fitting StandardScaler on training data
+2026-01-20 19:34:25,659 - medical_ai.data - INFO - StandardScaler fitted successfully
+2026-01-20 19:34:25,660 - medical_ai.models - INFO - Creating Logistic Regression model
+2026-01-20 19:34:25,660 - medical_ai.models - INFO - Training logistic_regression on 341 samples
+2026-01-20 19:34:25,661 - medical_ai.models - INFO - logistic_regression trained successfully
+2026-01-20 19:34:25,661 - medical_ai.models - INFO - Training accuracy: 0.9883
+2026-01-20 19:34:25,662 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 19:34:25,664 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 19:34:25,664 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 19:34:25,664 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 19:34:25,665 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 19:34:25,665 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 19:34:25,665 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 19:34:25,665 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 19:34:25,665 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 19:34:25,665 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 19:34:25,665 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 19:34:25,665 - medical_ai.data - INFO - Fitting StandardScaler on training data
+2026-01-20 19:34:25,666 - medical_ai.data - INFO - StandardScaler fitted successfully
+2026-01-20 19:34:25,666 - medical_ai.models - INFO - Creating Logistic Regression model
+2026-01-20 19:34:25,666 - medical_ai.models - INFO - Training logistic_regression on 341 samples
+2026-01-20 19:34:25,667 - medical_ai.models - INFO - logistic_regression trained successfully
+2026-01-20 19:34:25,668 - medical_ai.models - INFO - Training accuracy: 0.9883
+2026-01-20 19:34:25,668 - medical_ai.models - INFO - Creating Logistic Regression model
+2026-01-20 19:34:25,668 - medical_ai.models - INFO - Training logistic_regression on 341 samples
+2026-01-20 19:34:25,669 - medical_ai.models - INFO - logistic_regression trained successfully
+2026-01-20 19:34:25,669 - medical_ai.models - INFO - Training accuracy: 0.9883
+2026-01-20 19:34:25,670 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 19:34:25,672 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 19:34:25,672 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 19:34:25,672 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 19:34:25,673 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 19:34:25,673 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 19:34:25,673 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 19:34:25,673 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 19:34:25,673 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 19:34:25,673 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 19:34:25,673 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 19:34:25,673 - medical_ai.data - INFO - Fitting StandardScaler on training data
+2026-01-20 19:34:25,673 - medical_ai.data - INFO - StandardScaler fitted successfully
+2026-01-20 19:34:25,674 - medical_ai.models - INFO - Creating Logistic Regression model
+2026-01-20 19:34:25,674 - medical_ai.models - INFO - Training logistic_regression on 341 samples
+2026-01-20 19:34:25,675 - medical_ai.models - INFO - logistic_regression trained successfully
+2026-01-20 19:34:25,675 - medical_ai.models - INFO - Training accuracy: 0.9883
+2026-01-20 19:34:25,676 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 19:34:25,678 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 19:34:25,678 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 19:34:25,678 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 19:34:25,679 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 19:34:25,679 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 19:34:25,679 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 19:34:25,679 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 19:34:25,679 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 19:34:25,679 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 19:34:25,679 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 19:34:25,679 - medical_ai.data - INFO - Fitting StandardScaler on training data
+2026-01-20 19:34:25,679 - medical_ai.data - INFO - StandardScaler fitted successfully
+2026-01-20 19:34:25,680 - medical_ai.models - INFO - Creating Random Forest model
+2026-01-20 19:34:25,680 - medical_ai.models - INFO - Training random_forest on 341 samples
+2026-01-20 19:34:25,731 - medical_ai.models - INFO - random_forest trained successfully
+2026-01-20 19:34:25,733 - medical_ai.models - INFO - Training accuracy: 1.0000
+2026-01-20 19:34:25,734 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 19:34:25,736 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 19:34:25,736 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 19:34:25,736 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 19:34:25,737 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 19:34:25,737 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 19:34:25,737 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 19:34:25,737 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 19:34:25,737 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 19:34:25,737 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 19:34:25,737 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 19:34:25,738 - medical_ai.data - INFO - Fitting StandardScaler on training data
+2026-01-20 19:34:25,738 - medical_ai.data - INFO - StandardScaler fitted successfully
+2026-01-20 19:34:25,738 - medical_ai.models - INFO - Creating Logistic Regression model
+2026-01-20 19:34:25,738 - medical_ai.models - INFO - Training logistic_regression on 341 samples
+2026-01-20 19:34:25,739 - medical_ai.models - INFO - logistic_regression trained successfully
+2026-01-20 19:34:25,740 - medical_ai.models - INFO - Training accuracy: 0.9883
+2026-01-20 19:34:25,740 - medical_ai.models - INFO - Creating Random Forest model
+2026-01-20 19:34:25,740 - medical_ai.models - INFO - Training random_forest on 341 samples
+2026-01-20 19:34:25,791 - medical_ai.models - INFO - random_forest trained successfully
+2026-01-20 19:34:25,793 - medical_ai.models - INFO - Training accuracy: 1.0000
+2026-01-20 19:34:36,425 - medical_ai.api - INFO - ============================================================
+2026-01-20 19:34:36,425 - medical_ai.api - INFO - MEDICAL AI DIAGNOSIS SYSTEM - API SERVER
+2026-01-20 19:34:36,425 - medical_ai.api - INFO - ============================================================
+2026-01-20 19:34:36,425 - medical_ai.api - INFO - Host: 0.0.0.0
+2026-01-20 19:34:36,425 - medical_ai.api - INFO - Port: 8000
+2026-01-20 19:34:36,425 - medical_ai.api - INFO - Reload: True
+2026-01-20 19:34:36,425 - medical_ai.api - INFO - ============================================================
+2026-01-20 19:34:36,425 - medical_ai.api - INFO - 
+Starting server...
+2026-01-20 19:34:36,425 - medical_ai.api - INFO - API docs: http://0.0.0.0:8000/docs
+2026-01-20 19:34:36,425 - medical_ai.api - INFO - Health check: http://0.0.0.0:8000/health
+2026-01-20 19:34:36,425 - medical_ai.api - INFO - 
+Press CTRL+C to stop
+
+2026-01-20 19:36:19,389 - medical_ai.api - INFO - ============================================================
+2026-01-20 19:36:19,389 - medical_ai.api - INFO - MEDICAL AI DIAGNOSIS SYSTEM - API SERVER
+2026-01-20 19:36:19,389 - medical_ai.api - INFO - ============================================================
+2026-01-20 19:36:19,389 - medical_ai.api - INFO - Host: 0.0.0.0
+2026-01-20 19:36:19,389 - medical_ai.api - INFO - Port: 8000
+2026-01-20 19:36:19,389 - medical_ai.api - INFO - Reload: True
+2026-01-20 19:36:19,389 - medical_ai.api - INFO - ============================================================
+2026-01-20 19:36:19,389 - medical_ai.api - INFO - 
+Starting server...
+2026-01-20 19:36:19,389 - medical_ai.api - INFO - API docs: http://0.0.0.0:8000/docs
+2026-01-20 19:36:19,389 - medical_ai.api - INFO - Health check: http://0.0.0.0:8000/health
+2026-01-20 19:36:19,389 - medical_ai.api - INFO - 
+Press CTRL+C to stop
+
+2026-01-20 19:36:19,732 - medical_ai.api - INFO - Starting Medical AI Diagnosis API
+2026-01-20 19:36:19,732 - medical_ai.api - INFO - Initializing predictor with logistic_regression
+2026-01-20 19:36:19,732 - medical_ai.models - INFO - Loading logistic_regression from /Users/renatocesarcouto/Documents/Pessoal/Fase2/models/logistic_regression.joblib
+2026-01-20 19:36:20,232 - medical_ai.models - INFO - Model loaded successfully
+2026-01-20 19:36:20,232 - medical_ai.models - INFO - Loading scaler from /Users/renatocesarcouto/Documents/Pessoal/Fase2/models/scaler.joblib
+2026-01-20 19:36:20,233 - medical_ai.models - INFO - Scaler loaded successfully
+2026-01-20 19:36:20,233 - medical_ai.api - INFO - Predictor initialized successfully
+2026-01-20 19:36:20,233 - medical_ai.api - INFO - ✅ API startup complete
+2026-01-20 19:36:28,304 - medical_ai.api - INFO - Shutting down Medical AI Diagnosis API
+2026-01-20 19:42:23,026 - medical_ai.models - INFO - ============================================================
+2026-01-20 19:42:23,027 - medical_ai.models - INFO - MEDICAL AI DIAGNOSIS SYSTEM - TRAINING PIPELINE
+2026-01-20 19:42:23,027 - medical_ai.models - INFO - ============================================================
+2026-01-20 19:42:23,027 - medical_ai.models - INFO - 
+[Step 1/6] Loading dataset...
+2026-01-20 19:42:23,027 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 19:42:23,029 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 19:42:23,029 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 19:42:23,029 - medical_ai.models - INFO - 
+[Step 2/6] Preprocessing data...
+2026-01-20 19:42:23,029 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 19:42:23,030 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 19:42:23,030 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 19:42:23,030 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 19:42:23,030 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 19:42:23,030 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 19:42:23,030 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 19:42:23,030 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 19:42:23,030 - medical_ai.data - INFO - Fitting StandardScaler on training data
+2026-01-20 19:42:23,031 - medical_ai.data - INFO - StandardScaler fitted successfully
+2026-01-20 19:42:23,032 - medical_ai.data - INFO - Saving scaler to /Users/renatocesarcouto/Documents/Pessoal/Fase2/models/scaler.joblib
+2026-01-20 19:42:23,032 - medical_ai.data - INFO - Scaler saved successfully
+2026-01-20 19:42:23,032 - medical_ai.models - INFO - 
+[Step 3/6] Training logistic_regression...
+2026-01-20 19:42:23,032 - medical_ai.models - INFO - Creating Logistic Regression model
+2026-01-20 19:42:23,032 - medical_ai.models - INFO - Training logistic_regression on 341 samples
+2026-01-20 19:42:23,034 - medical_ai.models - INFO - logistic_regression trained successfully
+2026-01-20 19:42:23,035 - medical_ai.models - INFO - Training accuracy: 0.9883
+2026-01-20 19:42:23,035 - medical_ai.models - INFO - Validation accuracy: 0.9737
+2026-01-20 19:42:23,035 - medical_ai.models - INFO - Saving logistic_regression to /Users/renatocesarcouto/Documents/Pessoal/Fase2/models/logistic_regression.joblib
+2026-01-20 19:42:23,035 - medical_ai.models - INFO - Model saved successfully
+2026-01-20 19:42:23,035 - medical_ai.models - INFO - 
+[Step 4/6] Evaluating on test set...
+2026-01-20 19:42:23,035 - medical_ai.models - INFO - Calculating medical metrics
+2026-01-20 19:42:23,037 - medical_ai.models - INFO - Accuracy: 0.9737
+2026-01-20 19:42:23,037 - medical_ai.models - INFO - Sensitivity: 0.9524
+2026-01-20 19:42:23,037 - medical_ai.models - INFO - Specificity: 0.9861
+2026-01-20 19:42:23,037 - medical_ai.models - INFO - False Negatives: 2 (critical)
+2026-01-20 19:42:23,037 - medical_ai.models - INFO - False Positives: 1
+2026-01-20 19:42:23,037 - medical_ai.models - INFO - 
+[Step 5/6] Generating SHAP analysis...
+2026-01-20 19:42:23,037 - medical_ai.models - INFO - Generating SHAP analysis
+2026-01-20 19:42:23,039 - medical_ai.models - INFO - Top 10 features by SHAP importance:
+2026-01-20 19:42:23,039 - medical_ai.models - INFO -   1. worst texture: 1.148
+2026-01-20 19:42:23,039 - medical_ai.models - INFO -   2. mean concave points: 0.818
+2026-01-20 19:42:23,039 - medical_ai.models - INFO -   3. worst symmetry: 0.649
+2026-01-20 19:42:23,039 - medical_ai.models - INFO -   4. radius error: 0.644
+2026-01-20 19:42:23,039 - medical_ai.models - INFO -   5. worst radius: 0.581
+2026-01-20 19:42:23,039 - medical_ai.models - INFO -   6. compactness error: 0.572
+2026-01-20 19:42:23,039 - medical_ai.models - INFO -   7. worst concavity: 0.564
+2026-01-20 19:42:23,039 - medical_ai.models - INFO -   8. mean concavity: 0.551
+2026-01-20 19:42:23,039 - medical_ai.models - INFO -   9. worst area: 0.526
+2026-01-20 19:42:23,039 - medical_ai.models - INFO -   10. fractal dimension error: 0.478
+2026-01-20 19:42:23,040 - medical_ai.models - INFO - 
+[Step 6/6] Comparing with Fase 1 baseline...
+2026-01-20 19:42:23,040 - medical_ai.models - INFO - ✅ accuracy: 0.9737 vs 0.9737 (-0.0000)
+2026-01-20 19:42:23,040 - medical_ai.models - INFO - ⚠️ recall_sensitivity: 0.9524 vs 0.9861 (-0.0337)
+2026-01-20 19:42:23,040 - medical_ai.models - INFO - ✅ specificity: 0.9861 vs 0.9524 (+0.0337)
+2026-01-20 19:42:23,040 - medical_ai.models - INFO - 
+✅ Training complete! Metadata saved to /Users/renatocesarcouto/Documents/Pessoal/Fase2/models/metadata.json
+2026-01-20 19:42:23,040 - medical_ai.models - INFO - 
+============================================================
+2026-01-20 19:42:23,040 - medical_ai.models - INFO - TRAINING SUMMARY
+2026-01-20 19:42:23,040 - medical_ai.models - INFO - ============================================================
+2026-01-20 19:42:23,040 - medical_ai.models - INFO - Model: logistic_regression
+2026-01-20 19:42:23,040 - medical_ai.models - INFO - Accuracy: 0.9737
+2026-01-20 19:42:23,040 - medical_ai.models - INFO - Sensitivity: 0.9524
+2026-01-20 19:42:23,040 - medical_ai.models - INFO - Specificity: 0.9861
+2026-01-20 19:42:23,040 - medical_ai.models - INFO - False Negatives: 2
+2026-01-20 19:42:23,040 - medical_ai.models - INFO - False Positives: 1
+2026-01-20 19:42:23,040 - medical_ai.models - INFO - ============================================================
+2026-01-20 19:43:57,093 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 19:43:57,096 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 19:43:57,096 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 19:43:57,096 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 19:43:57,098 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 19:43:57,098 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 19:43:57,098 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 19:43:57,098 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 19:43:57,098 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 19:43:57,098 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 19:43:57,098 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 19:43:57,098 - medical_ai.data - INFO - Fitting StandardScaler on training data
+2026-01-20 19:43:57,099 - medical_ai.data - INFO - StandardScaler fitted successfully
+2026-01-20 19:43:57,099 - medical_ai.models - INFO - Starting Genetic Optimization for random_forest...
+2026-01-20 19:43:57,099 - medical_ai.models - INFO - Population: 10, Generations: 5
+2026-01-20 19:44:07,999 - medical_ai.models - INFO - Optimization Complete. Best Score: 0.9583
+2026-01-20 19:44:07,999 - medical_ai.models - INFO - Best Params: {'n_estimators': 125, 'max_depth': 17, 'min_samples_split': 9, 'min_samples_leaf': 1, 'criterion': 'gini'}
+2026-01-20 19:44:08,121 - medical_ai.models - INFO - Optimization history plot saved to models/optimization_history.png
+2026-01-20 19:44:08,124 - medical_ai.models - INFO - Optimization results saved.
+2026-01-20 19:44:31,604 - medical_ai.api - INFO - ============================================================
+2026-01-20 19:44:31,604 - medical_ai.api - INFO - MEDICAL AI DIAGNOSIS SYSTEM - API SERVER
+2026-01-20 19:44:31,604 - medical_ai.api - INFO - ============================================================
+2026-01-20 19:44:31,604 - medical_ai.api - INFO - Host: 0.0.0.0
+2026-01-20 19:44:31,604 - medical_ai.api - INFO - Port: 8000
+2026-01-20 19:44:31,604 - medical_ai.api - INFO - Reload: True
+2026-01-20 19:44:31,604 - medical_ai.api - INFO - ============================================================
+2026-01-20 19:44:31,604 - medical_ai.api - INFO - 
+Starting server...
+2026-01-20 19:44:31,604 - medical_ai.api - INFO - API docs: http://0.0.0.0:8000/docs
+2026-01-20 19:44:31,604 - medical_ai.api - INFO - Health check: http://0.0.0.0:8000/health
+2026-01-20 19:44:31,604 - medical_ai.api - INFO - 
+Press CTRL+C to stop
+
+2026-01-20 19:44:31,941 - medical_ai.api - INFO - Starting Medical AI Diagnosis API
+2026-01-20 19:44:31,941 - medical_ai.api - INFO - Initializing predictor with logistic_regression
+2026-01-20 19:44:31,941 - medical_ai.models - INFO - Loading logistic_regression from /Users/renatocesarcouto/Documents/Pessoal/Fase2/models/logistic_regression.joblib
+2026-01-20 19:44:32,454 - medical_ai.models - INFO - Model loaded successfully
+2026-01-20 19:44:32,454 - medical_ai.models - INFO - Loading scaler from /Users/renatocesarcouto/Documents/Pessoal/Fase2/models/scaler.joblib
+2026-01-20 19:44:32,454 - medical_ai.models - INFO - Scaler loaded successfully
+2026-01-20 19:44:32,454 - medical_ai.api - INFO - Predictor initialized successfully
+2026-01-20 19:44:32,454 - medical_ai.api - INFO - ✅ API startup complete
+2026-01-20 19:45:02,936 - medical_ai.api - INFO - Received prediction request
+2026-01-20 19:45:02,938 - medical_ai.api - INFO - Prediction: Malignant (confidence: 100.00%)
+2026-01-20 19:45:02,978 - medical_ai.models - INFO - Connecting to Ollama at http://localhost:11434/api/generate
+2026-01-20 19:45:02,990 - medical_ai.models - WARNING - Ollama failed (404 Client Error: Not Found for url: http://localhost:11434/api/generate). Falling back to template.
+2026-01-20 19:46:09,665 - medical_ai.api - INFO - Received prediction request
+2026-01-20 19:46:09,666 - medical_ai.api - INFO - Prediction: Malignant (confidence: 100.00%)
+2026-01-20 19:46:09,667 - medical_ai.models - INFO - Connecting to Ollama at http://localhost:11434/api/generate
+2026-01-20 19:46:09,674 - medical_ai.models - WARNING - Ollama failed (404 Client Error: Not Found for url: http://localhost:11434/api/generate). Falling back to template.
+2026-01-20 19:46:54,871 - medical_ai.api - INFO - Shutting down Medical AI Diagnosis API
+2026-01-20 19:46:57,918 - medical_ai.api - ERROR - Predictor not initialized
+2026-01-20 19:46:57,921 - medical_ai.api - ERROR - Predictor not initialized
+2026-01-20 19:46:57,923 - medical_ai.api - ERROR - Predictor not initialized
+2026-01-20 19:46:57,924 - medical_ai.api - ERROR - Predictor not initialized
+2026-01-20 19:46:57,935 - medical_ai.api - ERROR - Predictor not initialized
+2026-01-20 19:46:57,938 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 19:46:57,940 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 19:46:57,941 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 19:46:57,941 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 19:46:57,942 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 19:46:57,942 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 19:46:57,942 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 19:46:57,942 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 19:46:57,942 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 19:46:57,942 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 19:46:57,942 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 19:46:57,943 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 19:46:57,945 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 19:46:57,945 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 19:46:57,946 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 19:46:57,947 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 19:46:57,947 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 19:46:57,947 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 19:46:57,947 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 19:46:57,947 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 19:46:57,947 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 19:46:57,947 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 19:46:57,948 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 19:46:57,950 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 19:46:57,950 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 19:46:57,950 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 19:46:57,951 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 19:46:57,951 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 19:46:57,951 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 19:46:57,951 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 19:46:57,951 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 19:46:57,951 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 19:46:57,951 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 19:46:57,951 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 19:46:57,952 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 19:46:57,952 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 19:46:57,952 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 19:46:57,952 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 19:46:57,952 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 19:46:57,952 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 19:46:57,952 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 19:46:57,954 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 19:46:57,956 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 19:46:57,956 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 19:46:57,956 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 19:46:57,957 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 19:46:57,957 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 19:46:57,957 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 19:46:57,957 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 19:46:57,957 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 19:46:57,958 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 19:46:57,958 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 19:46:57,958 - medical_ai.data - INFO - Fitting StandardScaler on training data
+2026-01-20 19:46:57,958 - medical_ai.data - INFO - StandardScaler fitted successfully
+2026-01-20 19:46:57,959 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 19:46:57,961 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 19:46:57,961 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 19:46:57,961 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 19:46:57,962 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 19:46:57,962 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 19:46:57,962 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 19:46:57,962 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 19:46:57,963 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 19:46:57,963 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 19:46:57,963 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 19:46:57,963 - medical_ai.data - INFO - Fitting StandardScaler on training data
+2026-01-20 19:46:57,963 - medical_ai.data - INFO - StandardScaler fitted successfully
+2026-01-20 19:46:57,964 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 19:46:57,966 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 19:46:57,966 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 19:46:57,967 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 19:46:57,969 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 19:46:57,969 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 19:46:57,969 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 19:46:57,970 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 19:46:57,970 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 19:46:57,970 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 19:46:57,971 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 19:46:57,971 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 19:46:57,971 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 19:46:57,971 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 19:46:57,971 - medical_ai.data - INFO - Fitting StandardScaler on training data
+2026-01-20 19:46:57,971 - medical_ai.data - INFO - StandardScaler fitted successfully
+2026-01-20 19:46:57,972 - medical_ai.data - INFO - Saving scaler to /var/folders/pg/q_jsyc556cd_j2gm81ldyflr0000gn/T/tmp9q794w3g.joblib
+2026-01-20 19:46:57,972 - medical_ai.data - INFO - Scaler saved successfully
+2026-01-20 19:46:57,972 - medical_ai.data - INFO - Loading scaler from /var/folders/pg/q_jsyc556cd_j2gm81ldyflr0000gn/T/tmp9q794w3g.joblib
+2026-01-20 19:46:57,972 - medical_ai.data - INFO - Scaler loaded successfully
+2026-01-20 19:46:57,975 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 19:46:57,977 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 19:46:57,977 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 19:46:57,977 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 19:46:57,978 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 19:46:57,978 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 19:46:57,978 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 19:46:57,978 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 19:46:57,978 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 19:46:57,978 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 19:46:57,978 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 19:46:57,979 - medical_ai.models - INFO - Creating Logistic Regression model
+2026-01-20 19:46:57,979 - medical_ai.models - INFO - Creating Random Forest model
+2026-01-20 19:46:57,980 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 19:46:57,981 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 19:46:57,982 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 19:46:57,982 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 19:46:57,982 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 19:46:57,982 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 19:46:57,982 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 19:46:57,982 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 19:46:57,982 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 19:46:57,982 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 19:46:57,983 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 19:46:57,983 - medical_ai.data - INFO - Fitting StandardScaler on training data
+2026-01-20 19:46:57,983 - medical_ai.data - INFO - StandardScaler fitted successfully
+2026-01-20 19:46:57,983 - medical_ai.models - INFO - Creating Logistic Regression model
+2026-01-20 19:46:57,983 - medical_ai.models - INFO - Training logistic_regression on 341 samples
+2026-01-20 19:46:57,986 - medical_ai.models - INFO - logistic_regression trained successfully
+2026-01-20 19:46:57,986 - medical_ai.models - INFO - Training accuracy: 0.9883
+2026-01-20 19:46:57,987 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 19:46:57,989 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 19:46:57,989 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 19:46:57,989 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 19:46:57,990 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 19:46:57,990 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 19:46:57,990 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 19:46:57,990 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 19:46:57,990 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 19:46:57,990 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 19:46:57,990 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 19:46:57,990 - medical_ai.data - INFO - Fitting StandardScaler on training data
+2026-01-20 19:46:57,990 - medical_ai.data - INFO - StandardScaler fitted successfully
+2026-01-20 19:46:57,991 - medical_ai.models - INFO - Creating Random Forest model
+2026-01-20 19:46:57,991 - medical_ai.models - INFO - Training random_forest on 341 samples
+2026-01-20 19:46:58,042 - medical_ai.models - INFO - random_forest trained successfully
+2026-01-20 19:46:58,044 - medical_ai.models - INFO - Training accuracy: 1.0000
+2026-01-20 19:46:58,045 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 19:46:58,047 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 19:46:58,047 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 19:46:58,047 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 19:46:58,048 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 19:46:58,048 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 19:46:58,048 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 19:46:58,048 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 19:46:58,048 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 19:46:58,048 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 19:46:58,048 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 19:46:58,048 - medical_ai.data - INFO - Fitting StandardScaler on training data
+2026-01-20 19:46:58,048 - medical_ai.data - INFO - StandardScaler fitted successfully
+2026-01-20 19:46:58,049 - medical_ai.models - INFO - Creating Logistic Regression model
+2026-01-20 19:46:58,049 - medical_ai.models - INFO - Training logistic_regression on 341 samples
+2026-01-20 19:46:58,050 - medical_ai.models - INFO - logistic_regression trained successfully
+2026-01-20 19:46:58,050 - medical_ai.models - INFO - Training accuracy: 0.9883
+2026-01-20 19:46:58,051 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 19:46:58,053 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 19:46:58,053 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 19:46:58,053 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 19:46:58,054 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 19:46:58,054 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 19:46:58,054 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 19:46:58,054 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 19:46:58,054 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 19:46:58,054 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 19:46:58,054 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 19:46:58,054 - medical_ai.data - INFO - Fitting StandardScaler on training data
+2026-01-20 19:46:58,054 - medical_ai.data - INFO - StandardScaler fitted successfully
+2026-01-20 19:46:58,055 - medical_ai.models - INFO - Creating Logistic Regression model
+2026-01-20 19:46:58,055 - medical_ai.models - INFO - Training logistic_regression on 341 samples
+2026-01-20 19:46:58,056 - medical_ai.models - INFO - logistic_regression trained successfully
+2026-01-20 19:46:58,056 - medical_ai.models - INFO - Training accuracy: 0.9883
+2026-01-20 19:46:58,057 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 19:46:58,059 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 19:46:58,059 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 19:46:58,059 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 19:46:58,059 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 19:46:58,059 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 19:46:58,059 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 19:46:58,059 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 19:46:58,059 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 19:46:58,060 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 19:46:58,060 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 19:46:58,060 - medical_ai.data - INFO - Fitting StandardScaler on training data
+2026-01-20 19:46:58,060 - medical_ai.data - INFO - StandardScaler fitted successfully
+2026-01-20 19:46:58,060 - medical_ai.models - INFO - Creating Logistic Regression model
+2026-01-20 19:46:58,060 - medical_ai.models - INFO - Training logistic_regression on 341 samples
+2026-01-20 19:46:58,062 - medical_ai.models - INFO - logistic_regression trained successfully
+2026-01-20 19:46:58,062 - medical_ai.models - INFO - Training accuracy: 0.9883
+2026-01-20 19:46:58,062 - medical_ai.models - INFO - Saving logistic_regression to /var/folders/pg/q_jsyc556cd_j2gm81ldyflr0000gn/T/tmpx4niot7_.joblib
+2026-01-20 19:46:58,063 - medical_ai.models - INFO - Model saved successfully
+2026-01-20 19:46:58,063 - medical_ai.models - INFO - Creating Logistic Regression model
+2026-01-20 19:46:58,064 - medical_ai.models - INFO - Creating Logistic Regression model
+2026-01-20 19:46:58,064 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 19:46:58,067 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 19:46:58,067 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 19:46:58,067 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 19:46:58,068 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 19:46:58,068 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 19:46:58,068 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 19:46:58,068 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 19:46:58,068 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 19:46:58,068 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 19:46:58,068 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 19:46:58,068 - medical_ai.data - INFO - Fitting StandardScaler on training data
+2026-01-20 19:46:58,068 - medical_ai.data - INFO - StandardScaler fitted successfully
+2026-01-20 19:46:58,069 - medical_ai.models - INFO - Creating Logistic Regression model
+2026-01-20 19:46:58,069 - medical_ai.models - INFO - Training logistic_regression on 341 samples
+2026-01-20 19:46:58,070 - medical_ai.models - INFO - logistic_regression trained successfully
+2026-01-20 19:46:58,070 - medical_ai.models - INFO - Training accuracy: 0.9883
+2026-01-20 19:46:58,071 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 19:46:58,073 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 19:46:58,073 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 19:46:58,073 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 19:46:58,074 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 19:46:58,074 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 19:46:58,074 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 19:46:58,074 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 19:46:58,074 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 19:46:58,074 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 19:46:58,074 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 19:46:58,074 - medical_ai.data - INFO - Fitting StandardScaler on training data
+2026-01-20 19:46:58,075 - medical_ai.data - INFO - StandardScaler fitted successfully
+2026-01-20 19:46:58,075 - medical_ai.models - INFO - Creating Logistic Regression model
+2026-01-20 19:46:58,075 - medical_ai.models - INFO - Training logistic_regression on 341 samples
+2026-01-20 19:46:58,076 - medical_ai.models - INFO - logistic_regression trained successfully
+2026-01-20 19:46:58,077 - medical_ai.models - INFO - Training accuracy: 0.9883
+2026-01-20 19:46:58,077 - medical_ai.models - INFO - Creating Logistic Regression model
+2026-01-20 19:46:58,077 - medical_ai.models - INFO - Training logistic_regression on 341 samples
+2026-01-20 19:46:58,078 - medical_ai.models - INFO - logistic_regression trained successfully
+2026-01-20 19:46:58,078 - medical_ai.models - INFO - Training accuracy: 0.9883
+2026-01-20 19:46:58,079 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 19:46:58,080 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 19:46:58,080 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 19:46:58,081 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 19:46:58,081 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 19:46:58,081 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 19:46:58,081 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 19:46:58,081 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 19:46:58,081 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 19:46:58,081 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 19:46:58,082 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 19:46:58,082 - medical_ai.data - INFO - Fitting StandardScaler on training data
+2026-01-20 19:46:58,082 - medical_ai.data - INFO - StandardScaler fitted successfully
+2026-01-20 19:46:58,082 - medical_ai.models - INFO - Creating Logistic Regression model
+2026-01-20 19:46:58,082 - medical_ai.models - INFO - Training logistic_regression on 341 samples
+2026-01-20 19:46:58,083 - medical_ai.models - INFO - logistic_regression trained successfully
+2026-01-20 19:46:58,084 - medical_ai.models - INFO - Training accuracy: 0.9883
+2026-01-20 19:46:58,084 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 19:46:58,086 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 19:46:58,086 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 19:46:58,086 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 19:46:58,087 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 19:46:58,087 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 19:46:58,087 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 19:46:58,087 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 19:46:58,087 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 19:46:58,087 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 19:46:58,087 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 19:46:58,087 - medical_ai.data - INFO - Fitting StandardScaler on training data
+2026-01-20 19:46:58,088 - medical_ai.data - INFO - StandardScaler fitted successfully
+2026-01-20 19:46:58,088 - medical_ai.models - INFO - Creating Random Forest model
+2026-01-20 19:46:58,088 - medical_ai.models - INFO - Training random_forest on 341 samples
+2026-01-20 19:46:58,139 - medical_ai.models - INFO - random_forest trained successfully
+2026-01-20 19:46:58,141 - medical_ai.models - INFO - Training accuracy: 1.0000
+2026-01-20 19:46:58,143 - medical_ai.data - INFO - Loading Wisconsin Breast Cancer dataset from sklearn
+2026-01-20 19:46:58,145 - medical_ai.data - INFO - Dataset loaded: 569 samples, 30 features
+2026-01-20 19:46:58,145 - medical_ai.data - INFO - Class distribution: {0: 357, 1: 212}
+2026-01-20 19:46:58,145 - medical_ai.data - INFO - Splitting data into train/val/test (60/20/20)
+2026-01-20 19:46:58,146 - medical_ai.data - INFO - Train set: 341 samples
+2026-01-20 19:46:58,146 - medical_ai.data - INFO - Val set: 114 samples
+2026-01-20 19:46:58,146 - medical_ai.data - INFO - Test set: 114 samples
+2026-01-20 19:46:58,146 - medical_ai.data - INFO - Actual ratios - Train: 59.93%, Val: 20.04%, Test: 20.04%
+2026-01-20 19:46:58,146 - medical_ai.data - INFO - Train class distribution: Benign=214 (62.8%), Malignant=127 (37.2%)
+2026-01-20 19:46:58,146 - medical_ai.data - INFO - Val class distribution: Benign=71 (62.3%), Malignant=43 (37.7%)
+2026-01-20 19:46:58,146 - medical_ai.data - INFO - Test class distribution: Benign=72 (63.2%), Malignant=42 (36.8%)
+2026-01-20 19:46:58,146 - medical_ai.data - INFO - Fitting StandardScaler on training data
+2026-01-20 19:46:58,146 - medical_ai.data - INFO - StandardScaler fitted successfully
+2026-01-20 19:46:58,147 - medical_ai.models - INFO - Creating Logistic Regression model
+2026-01-20 19:46:58,147 - medical_ai.models - INFO - Training logistic_regression on 341 samples
+2026-01-20 19:46:58,148 - medical_ai.models - INFO - logistic_regression trained successfully
+2026-01-20 19:46:58,148 - medical_ai.models - INFO - Training accuracy: 0.9883
+2026-01-20 19:46:58,148 - medical_ai.models - INFO - Creating Random Forest model
+2026-01-20 19:46:58,148 - medical_ai.models - INFO - Training random_forest on 341 samples
+2026-01-20 19:46:58,200 - medical_ai.models - INFO - random_forest trained successfully
+2026-01-20 19:46:58,202 - medical_ai.models - INFO - Training accuracy: 1.0000

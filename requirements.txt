@@ -1,0 +1,13 @@
+scikit-learn
+fastapi
+uvicorn
+pydantic
+shap
+pandas
+numpy
+pytest
+pytest-cov
+httpx
+sklearn-genetic-opt
+deap
+matplotlib

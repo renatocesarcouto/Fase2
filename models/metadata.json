@@ -1,0 +1,86 @@
+{
+  "model_type": "logistic_regression",
+  "random_state": 42,
+  "train_size": 341,
+  "val_size": 114,
+  "test_size": 114,
+  "metrics": {
+    "accuracy": 0.9736842105263158,
+    "precision": 0.975609756097561,
+    "recall_sensitivity": 0.9523809523809523,
+    "specificity": 0.9861111111111112,
+    "f1_score": 0.963855421686747,
+    "roc_auc": 0.9953703703703705,
+    "false_negative_rate": 0.047619047619047616,
+    "false_positive_rate": 0.013888888888888888,
+    "confusion_matrix": {
+      "true_negatives": 71,
+      "false_positives": 1,
+      "false_negatives": 2,
+      "true_positives": 40
+    },
+    "total_samples": 114
+  },
+  "comparison": {
+    "accuracy": {
+      "current": 0.9736842105263158,
+      "baseline": 0.9737,
+      "difference": -1.5789473684191258e-05,
+      "meets_baseline": true
+    },
+    "recall_sensitivity": {
+      "current": 0.9523809523809523,
+      "baseline": 0.9861,
+      "difference": -0.03371904761904765,
+      "meets_baseline": false
+    },
+    "specificity": {
+      "current": 0.9861111111111112,
+      "baseline": 0.9524,
+      "difference": 0.033711111111111136,
+      "meets_baseline": true
+    }
+  },
+  "top_features": [
+    {
+      "feature": "worst texture",
+      "importance": 1.1480477580724089
+    },
+    {
+      "feature": "mean concave points",
+      "importance": 0.8183127178953764
+    },
+    {
+      "feature": "worst symmetry",
+      "importance": 0.6486112593062829
+    },
+    {
+      "feature": "radius error",
+      "importance": 0.6444414101598628
+    },
+    {
+      "feature": "worst radius",
+      "importance": 0.5814049193168078
+    },
+    {
+      "feature": "compactness error",
+      "importance": 0.571773589680155
+    },
+    {
+      "feature": "worst concavity",
+      "importance": 0.563820642560356
+    },
+    {
+      "feature": "mean concavity",
+      "importance": 0.5507779035066998
+    },
+    {
+      "feature": "worst area",
+      "importance": 0.5258946874659024
+    },
+    {
+      "feature": "fractal dimension error",
+      "importance": 0.47829504501340475
+    }
+  ]
+}
